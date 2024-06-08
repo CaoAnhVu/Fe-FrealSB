@@ -34,50 +34,7 @@ passwordToggles.forEach((toggle) => {
     this.classList.toggle("fa-eye-slash");
   });
 });
-//login with Fb
-function checkLoginState() {
-  FB.getLoginStatus(function (response) {
-    statusChangeCallback(response);
-  });
-}
 
-function statusChangeCallback(response) {
-  if (response.status === "connected") {
-    FB.api("/me?fields=name,email", function (response) {
-      console.log("Successful login for: " + response.name);
-      console.log("Email: " + response.email);
-
-      // Thực hiện các bước tiếp theo như gửi thông tin đến server của bạn.
-    });
-  } else {
-    console.log("User cancelled login or did not fully authorize.");
-  }
-}
-
-function fbLogin() {
-  FB.login(checkLoginState, { scope: "public_profile,email" });
-}
-//login with google
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log("ID: " + profile.getId()); // Không chia sẻ thông tin này.
-  console.log("Name: " + profile.getName());
-  console.log("Image URL: " + profile.getImageUrl());
-  console.log("Email: " + profile.getEmail()); // Đây là thông tin đã xác minh.
-
-  // Thực hiện các bước tiếp theo như gửi thông tin đến server.
-}
-
-function googleSignIn() {
-  var auth2 = gapi.auth2.getAuthInstance();
-  auth2.signIn().then(onSignIn);
-}
-
-function initGoogleAPI() {
-  gapi.load("auth2", function () {
-    gapi.auth2.init();
-  });
-}
 // Kiểm tra mật khẩu mạnh yếu
 function checkPasswordStrength() {
   var password = document.getElementById("register-password").value;
@@ -121,14 +78,8 @@ function checkPasswordMatch() {
   }
 }
 
-// Hiển thị form OTP
-function showOtpForm() {
-  document.getElementById("register-form").style.display = "none";
-  document.getElementById("otp-form").style.display = "block";
-}
-
-// Validate Sign Up
-function validateSignUp() {
+// Validate Sign Up và show form OTP
+function validateSignUpAndShowOtpForm() {
   var password = document.getElementById("register-password").value;
   var confirmPassword = document.getElementById("confirm-password").value;
   var signUpButton = document.getElementById("sign-up-button");
@@ -142,25 +93,13 @@ function validateSignUp() {
   // Kiểm tra sự khớp nhau giữa mật khẩu và mật khẩu xác nhận
   if (password !== confirmPassword) {
     alert("Passwords do not match!");
+    signUpButton.disabled = true; // Vô hiệu hóa nút Sign Up nếu mật khẩu không khớp
     return false; // Ngăn chặn việc submit form
   }
 
-  // Vô hiệu hóa nút Sign up nếu mật khẩu không khớp
-  signUpButton.disabled = false;
+  // Nếu mật khẩu khớp, hiển thị form OTP
+  document.getElementById("register-form").style.display = "none";
+  document.getElementById("otp-form").style.display = "block";
 
   return true; // Cho phép submit form nếu mật khẩu khớp nhau
 }
-
-// Lắng nghe sự kiện input trên các ô password
-document
-  .getElementById("register-password")
-  .addEventListener("input", function () {
-    checkPasswordStrength(); // Kiểm tra mật khẩu mạnh yếu
-    checkPasswordMatch(); // Kiểm tra sự trùng khớp giữa mật khẩu và mật khẩu xác nhận
-  });
-
-document
-  .getElementById("confirm-password")
-  .addEventListener("input", function () {
-    checkPasswordMatch(); // Kiểm tra sự trùng khớp giữa mật khẩu và mật khẩu xác nhận
-  });

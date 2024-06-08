@@ -20,7 +20,7 @@
     <link href="../../static/css/style.css" rel="stylesheet" />
     <title>Login</title>
   </head>
-  <body >
+  <body onload="initGoogleAPI()">
     <div class="container" id="container">
       <div class="toggle-container">
         <div class="swiper-container">
@@ -250,47 +250,59 @@
           </div>
         </div>
       </div>
-      <div class="form-container sign-in">
+      <div class="form-container">
         <form>
-          <h1>Sign In</h1>
-          <span>Hello, Friend! Please enter your details.</span>
-          <div class="social-icons">
-            <a href="#" class="icon" "
-              ><i class="fa-brands fa-google-plus-g"></i
-            ></a>
-            <a href="#" class="icon" 
-              ><i class="fa-brands fa-facebook-f"></i
-            ></a>
+          <h3>2-step Verification</h3>
+          <span
+            >We sent a verification code to your email. <br />Enter the code
+            form the email in the field below.</span
+          >
+          <div class="form-group">
+            <div class="form-opt-item">
+              <input
+                type="text"
+                class="form-control"
+                id="otp1"
+                maxlength="1"
+                required
+              />
+            </div>
+            <div class="form-opt-item">
+              <input
+                type="text"
+                class="form-control"
+                id="otp2"
+                maxlength="1"
+                required
+              />
+            </div>
+            <div class="form-opt-item">
+              <input
+                type="text"
+                class="form-control"
+                id="otp3"
+                maxlength="1"
+                required
+              />
+            </div>
+            <div class="form-opt-item">
+              <input
+                type="text"
+                class="form-control"
+                id="otp3"
+                maxlength="1"
+                required
+              />
+            </div>
+            <!-- Add more fields for additional digits if needed -->
           </div>
-          <div class="form-item">
-            <div class="left-item"></div>
-            <hr class="separator" />
-            <span>or use your email password</span>
-            <hr class="separator" />
-            <div class="right-item"></div>
-          </div>
-          <input type="email" placeholder="Email" />
-          <div class="show-item">
-            <input type="password" id="login-password" placeholder="Password" />
-            <i
-              class="fa-solid fa-eye-slash password-toggle"
-              data-target="login-password"
-            ></i>
-          </div>
-          <div class="row link-container">
-            <a class="col-6 left-link" href="#">Remember me?</a>
-            <a class="col-6 right-link text-right" href="#"
-              >Forget Your Password?</a
-            >
-          </div>
-
-          <button type="submit">Sign In</button>
+          <button type="submit">Verifi my account</button>
           <p>
-            Don't hava an account?<a href="register.html">
+            Don't hava an account?<a href="#">
               <span
                 class="font-weight-bold"
                 style="font-weight: bold; color: #75b8ed"
-                >SignUp</span
+                >Resend a new code</span
               ></a
             >
           </p>
@@ -306,6 +318,5 @@
     </div>
     <script src="../../static/js/script.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    
   </body>
 </html>

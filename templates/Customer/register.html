@@ -278,8 +278,8 @@
           <div class="show-item">
             <input
               type="password"
-              id="register-password"
               placeholder="Password"
+              id="register-password"
               oninput="checkPasswordStrength()"
             />
             <div id="password-strength"></div>
@@ -289,13 +289,13 @@
           <div class="show-item">
             <input
               type="password"
-              id="confirm-password"
               placeholder="Confirm Password"
+              id="confirm-password"
               oninput="checkPasswordMatch()"
             />
             <div id="password-match"></div>
           </div>
-          <button type="button" onclick="showOtpForm()" id="sign-up-btn">
+          <button type="button" id="showOtpForm()" id="sign-up-button">Sign Up</button>
             Sign Up
           </button>
           <p>
@@ -304,64 +304,6 @@
                 class="font-weight-bold"
                 style="font-weight: bold; color: #75b8ed"
                 >Sign In</span
-              ></a
-            >
-          </p>
-        </form>
-      </div>
-      <div class="form-container" id="otp-form" style="display: none">
-        <form>
-          <h3>2-step Verification</h3>
-          <span
-            >We sent a verification code to your email. <br />Enter the code
-            from the email in the field below.</span
-          >
-          <div class="form-group">
-            <div class="form-opt-item">
-              <input
-                type="text"
-                class="form-control"
-                id="otp1"
-                maxlength="1"
-                required
-              />
-            </div>
-            <div class="form-opt-item">
-              <input
-                type="text"
-                class="form-control"
-                id="otp2"
-                maxlength="1"
-                required
-              />
-            </div>
-            <div class="form-opt-item">
-              <input
-                type="text"
-                class="form-control"
-                id="otp3"
-                maxlength="1"
-                required
-              />
-            </div>
-            <div class="form-opt-item">
-              <input
-                type="text"
-                class="form-control"
-                id="otp4"
-                maxlength="1"
-                required
-              />
-            </div>
-            <!-- Add more fields for additional digits if needed -->
-          </div>
-          <button type="submit">Verify my account</button>
-          <p>
-            Don't have an account?<a href="#">
-              <span
-                class="font-weight-bold"
-                style="font-weight: bold; color: #75b8ed"
-                >Resend a new code</span
               ></a
             >
           </p>
