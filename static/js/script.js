@@ -35,51 +35,69 @@ passwordToggles.forEach((toggle) => {
   });
 });
 
-// Kiểm tra mật khẩu mạnh yếu
-function checkPasswordStrength() {
-  var password = document.getElementById("register-password").value;
-  var strengthText = document.getElementById("password-strength");
-
-  // Regular expressions to check password strength
-  var strongRegex = new RegExp(
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-  );
-  var mediumRegex = new RegExp("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.{8,})");
-
-  // Check password against the regex and display strength
-  if (strongRegex.test(password)) {
-    strengthText.innerHTML = "Strong Password";
-    strengthText.style.color = "green";
-  } else if (mediumRegex.test(password)) {
-    strengthText.innerHTML = "Medium Password";
-    strengthText.style.color = "orange";
-  } else {
-    strengthText.innerHTML = "Weak Password";
-    strengthText.style.color = "red";
-  }
-}
-
-// Kiểm tra sự khớp nhau giữa mật khẩu và mật khẩu xác nhận
+/// Kiểm tra sự khớp nhau giữa mật khẩu và mật khẩu xác nhận
 function checkPasswordMatch() {
   var password = document.getElementById("register-password").value;
   var confirmPassword = document.getElementById("confirm-password").value;
   var matchText = document.getElementById("password-match");
 
-  if (
-    password === confirmPassword &&
-    password !== "" &&
-    confirmPassword !== ""
-  ) {
-    matchText.innerHTML = "Passwords match";
-    matchText.style.color = "green";
+  if (password === "" && confirmPassword === "") {
+    matchText.style.display = "none"; // Ẩn thông báo nếu cả hai ô đều trống
   } else {
-    matchText.innerHTML = "Passwords do not match";
-    matchText.style.color = "red";
+    matchText.style.display = "block"; // Hiển thị thông báo nếu một trong hai ô không trống
+    if (password === confirmPassword) {
+      matchText.innerHTML = "Passwords match";
+      matchText.style.color = "green";
+    } else {
+      matchText.innerHTML = "Passwords do not match";
+      matchText.style.color = "red";
+    }
   }
 }
 
-// Validate Sign Up và show form OTP
-function validateSignUpAndShowOtpForm() {
+// Gọi hàm kiểm tra sự khớp mật khẩu khi trang được tải và sau mỗi lần nhập liệu
+document
+  .getElementById("register-password")
+  .addEventListener("input", checkPasswordMatch);
+document
+  .getElementById("confirm-password")
+  .addEventListener("input", checkPasswordMatch);
+
+// Kiểm tra mật khẩu mạnh yếu
+function checkPasswordStrength() {
+  var password = document.getElementById("register-password");
+  var messageText = document.getElementById("message");
+  var strengthText = document.getElementById("password-strength");
+
+  password.addEventListener("input", function () {
+    if (password.value.length > 0) {
+      messageText.style.display = "block";
+    } else {
+      messageText.style.display = "none";
+      password.style.borderColor = ""; // Xóa màu viền khi không có giá trị
+    }
+
+    if (password.value.length < 4 && password.value.length > 0) {
+      strengthText.innerHTML = "weak";
+      password.style.borderColor = "red";
+      messageText.style.color = "red";
+    } else if (password.value.length >= 4 && password.value.length < 8) {
+      strengthText.innerHTML = "medium";
+      password.style.borderColor = "orange";
+      messageText.style.color = "orange";
+    } else if (password.value.length >= 8) {
+      strengthText.innerHTML = "strong";
+      password.style.borderColor = "green";
+      messageText.style.color = "green";
+    }
+  });
+}
+
+// Gọi hàm kiểm tra mật khẩu khi trang được tải
+document.addEventListener("DOMContentLoaded", checkPasswordStrength);
+
+// Hàm kiểm tra và xác nhận đăng ký
+function validateSignUp() {
   var password = document.getElementById("register-password").value;
   var confirmPassword = document.getElementById("confirm-password").value;
   var signUpButton = document.getElementById("sign-up-button");
@@ -97,9 +115,13 @@ function validateSignUpAndShowOtpForm() {
     return false; // Ngăn chặn việc submit form
   }
 
-  // Nếu mật khẩu khớp, hiển thị form OTP
-  document.getElementById("register-form").style.display = "none";
-  document.getElementById("otp-form").style.display = "block";
-
   return true; // Cho phép submit form nếu mật khẩu khớp nhau
 }
+// Nếu mật khẩu khớp, hiển thị form OTP
+document
+  .getElementById("sign-up-button")
+  .addEventListener("click", function () {
+    if (validateSignUp()) {
+      window.location.href = "otp.html";
+    }
+  });

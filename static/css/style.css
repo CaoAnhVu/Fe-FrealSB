@@ -113,12 +113,15 @@ body {
 .container input {
   background-color: #eee;
   border: none;
-  margin: 8px 0;
+  margin: 12px 0;
   padding: 10px 15px;
   font-size: 13px;
   border-radius: 8px;
   width: 100%;
   outline: none;
+}
+.container input.password-input {
+  border: 1px solid #fff; /* Chỉ áp dụng border cho input của password */
 }
 
 .form-container {
@@ -235,11 +238,28 @@ body {
 .container ul.text-container-location {
   background-color: transparent;
 }
-/* login with fb */
-.g-signin2,
-fb\\:login-button {
-  display: none !important;
+#message {
+  position: absolute;
+  top: 33px;
+  color: #5d6162;
+  font-size: 13px;
+  display: none;
 }
+
+::placeholder {
+  font-size: 13px;
+}
+#password-match {
+  position: absolute;
+  top: 33px;
+  color: #5d6162;
+  font-size: 13px;
+  display: none;
+}
+::placeholder {
+  font-size: 13px;
+}
+
 /* login and register page end */
 /* form OTP begin */
 .form-group {

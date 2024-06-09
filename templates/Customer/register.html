@@ -21,7 +21,7 @@
     <title>Register</title>
   </head>
   <body>
-    <div class="container" id="container">
+    <div class="container" id="container" id="register-form">
       <div class="toggle-container">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -250,7 +250,7 @@
           </div>
         </div>
       </div>
-      <div class="form-container sign-up" id="register-form">
+      <div class="sign-up">
         <form>
           <h1>Create Account</h1>
           <div class="social-icons">
@@ -280,9 +280,9 @@
               type="password"
               placeholder="Password"
               id="register-password"
-              oninput="checkPasswordStrength()"
+              class="password-input"
             />
-            <div id="password-strength"></div>
+            <p id="message">Password is <span id="password-strength"></span></p>
           </div>
 
           <!-- Confirm password input -->
@@ -293,11 +293,10 @@
               id="confirm-password"
               oninput="checkPasswordMatch()"
             />
-            <div id="password-match"></div>
+            <p id="password-match"></p>
           </div>
-          <button type="button" id="showOtpForm()" id="sign-up-button">Sign Up</button>
-            Sign Up
-          </button>
+          <button type="button" id="sign-up-button">Sign Up</button>
+
           <p>
             Already have an account?<a href="login.html">
               <span
