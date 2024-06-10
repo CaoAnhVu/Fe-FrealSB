@@ -11,10 +11,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <!-- Notification -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- shortcut -->
     <link rel="shortcut icon" href="../../static/images/logo.png" />
     <link href="../../static/css/style.css" rel="stylesheet" />
-    <title>Login</title>
+    <title>Freal Login</title>
   </head>
   <body>
     <div class="container" id="container">
@@ -263,7 +269,7 @@
             <hr class="separator" />
             <div class="right-item"></div>
           </div>
-          <input type="email" placeholder="Email" />
+          <input type="email" id="login-email" placeholder="Email" />
           <div class="show-item">
             <input type="password" id="login-password" placeholder="Password" />
             <i
@@ -278,7 +284,7 @@
             >
           </div>
 
-          <button type="submit">Sign In</button>
+          <button type="submit" id="sign-in-button">Sign In</button>
           <p>
             Don't hava an account?<a href="register.html">
               <span

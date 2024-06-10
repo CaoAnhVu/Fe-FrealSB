@@ -3,191 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FREAL</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link href="../../static/css/style.css" rel="stylesheet" />
+    <title>Threads</title>
+    <link rel="stylesheet" href="../../static/css/style.css" />
   </head>
   <body>
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark  ">
-      <a class="navbar-brand" href="#">
-        <img src="../../static/images/logo.png" alt="FREALSB" style="height: 50px" />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">News & Events</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Multimedia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"
-              >FREAL+ <span class="badge bg-danger">LIVE</span></a
-            >
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
+    <header>
+      <div class="container-freal">
+        <h1>Threads</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
-    <section class="hero-section">
-        <img src="../../static/images/background.avif" alt="">
-      </section>
-    </section>
-    <footer class="footer bg-dark text-white py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 mb-4">
-            <img
-              src="../../static/images/logo.png"
-              alt="FREAL"
-              class="footer-logo mb-2"
-            />
-            <p>The National Aeronautics and Space Administration</p>
-            <p>
-              NASA explores the unknown in air and space, innovates for the
-              benefit of humanity, and inspires the world through discovery.
-            </p>
-            <a href="#" class="text-white">About NASA's Mission</a><br />
-            <a href="#" class="text-danger fw-bold"
-              >Join Us <span class="badge bg-danger">LIVE</span></a
-            >
-          </div>
-          <div class="col-lg-2 mb-4">
-            <h5>Home</h5>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">News & Events</a></li>
-              <li><a href="#" class="text-white">Multimedia</a></li>
-              <li>
-                <a href="#" class="text-white"
-                  >FREAL+ <span class="badge bg-danger">LIVE</span></a
-                >
-              </li>
-              <li><a href="#" class="text-white">Missions</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-2 mb-4">
-            <h5>Humans in Space</h5>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Earth & Climate</a></li>
-              <li><a href="#" class="text-white">The Solar System</a></li>
-              <li><a href="#" class="text-white">The Universe</a></li>
-              <li><a href="#" class="text-white">Science</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-2 mb-4">
-            <h5>Aeronautics</h5>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Technology</a></li>
-              <li><a href="#" class="text-white">Learning Resources</a></li>
-              <li><a href="#" class="text-white">About FREAL</a></li>
-              <li><a href="#" class="text-white">FREAL en Español</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 mb-4">
-            <h5>Follow FREAL</h5>
-            <div class="footer-social mb-3">
-              <a href="#" class="text-white me-3"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="#" class="text-white me-3"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a href="#" class="text-white me-3"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="#" class="text-white me-3"
-                ><i class="fab fa-youtube"></i
-              ></a>
-            </div>
-            <a href="#" class="text-white">More FREAL Social Accounts</a><br />
-            <a href="#" class="text-white">FREAL Newsletters</a>
-          </div>
+    <main class="container-freal">
+      <div class="sidebar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Messages</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="post-box">
+          <textarea
+            id="post-content"
+            placeholder="What's on your mind?"
+          ></textarea>
+          <button id="post-button">Post</button>
         </div>
-        <div class="row mt-4">
-          <div class="col-12 text-center">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Sitemap</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">For Media</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">FOIA</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">No FEAR Act</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Office of the IG</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Budget & Annual Reports</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Agency Financial Reports</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Contact NASA</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">Accessibility</a>
-              </li>
-            </ul>
-            <p class="mt-2">Page Last Updated: Jun 1, 2024</p>
-            <p>
-              Responsible NASA Official:
-              <a href="#" class="text-white">Rebecca Simmons</a>
-            </p>
-          </div>
+        <div id="posts-container">
+          <!-- Posts will be appended here -->
         </div>
       </div>
-    </footer>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+      <div class="right-sidebar">
+        <h2>Trends</h2>
+        <ul>
+          <li><a href="#">#trend1</a></li>
+          <li><a href="#">#trend2</a></li>
+          <li><a href="#">#trend3</a></li>
+          <li><a href="#">#trend4</a></li>
+        </ul>
+      </div>
+    </main>
+    <script src="../../static/js/script.js"></script>
   </body>
 </html>

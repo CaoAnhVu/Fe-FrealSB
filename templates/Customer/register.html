@@ -12,14 +12,27 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <!-- Notification -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- shortcut -->
     <link rel="shortcut icon" href="../../static/images/logo.png" />
     <link href="../../static/css/style.css" rel="stylesheet" />
 
-    <title>Register</title>
+    <title>Freal Register</title>
   </head>
   <body>
     <div class="container" id="container" id="register-form">
+      <div id="custom-alert" style="display: none">
+        <div class="alert-content">
+          <p id="alert-message"></p>
+          <button onclick="closeAlert()">OK</button>
+        </div>
+      </div>
+
       <div class="toggle-container">
         <div class="swiper-container">
           <div class="swiper-wrapper">

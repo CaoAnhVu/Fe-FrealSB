@@ -34,6 +34,7 @@ passwordToggles.forEach((toggle) => {
     this.classList.toggle("fa-eye-slash");
   });
 });
+// kiểm tra thông tin
 
 /// Kiểm tra sự khớp nhau giữa mật khẩu và mật khẩu xác nhận
 function checkPasswordMatch() {
@@ -96,6 +97,15 @@ function checkPasswordStrength() {
 // Gọi hàm kiểm tra mật khẩu khi trang được tải
 document.addEventListener("DOMContentLoaded", checkPasswordStrength);
 
+// Hàm kiểm tra và thông báo xác nhận đăng ký
+function showAlert(message) {
+  document.getElementById("alert-message").innerText = message;
+  document.getElementById("custom-alert").style.display = "flex";
+}
+
+function closeAlert() {
+  document.getElementById("custom-alert").style.display = "none";
+}
 // Hàm kiểm tra và xác nhận đăng ký
 function validateSignUp() {
   var password = document.getElementById("register-password").value;
@@ -104,20 +114,20 @@ function validateSignUp() {
 
   // Kiểm tra mật khẩu rỗng
   if (password === "" || confirmPassword === "") {
-    alert("Please enter both password and confirm password.");
+    showAlert("Vui lòng nhập cả mật khẩu và xác nhận mật khẩu.");
     return false;
   }
 
   // Kiểm tra sự khớp nhau giữa mật khẩu và mật khẩu xác nhận
   if (password !== confirmPassword) {
-    alert("Passwords do not match!");
+    showAlert("Mật khẩu và xác nhận mật khẩu không khớp!");
     signUpButton.disabled = true; // Vô hiệu hóa nút Sign Up nếu mật khẩu không khớp
     return false; // Ngăn chặn việc submit form
   }
 
   return true; // Cho phép submit form nếu mật khẩu khớp nhau
 }
-// Nếu mật khẩu khớp, hiển thị form OTP
+
 document
   .getElementById("sign-up-button")
   .addEventListener("click", function () {
@@ -125,3 +135,29 @@ document
       window.location.href = "otp.html";
     }
   });
+//index
+document.getElementById("post-button").addEventListener("click", function () {
+  const content = document.getElementById("post-content").value;
+  if (content) {
+    addPost(content);
+    document.getElementById("post-content").value = "";
+  }
+});
+
+function addPost(content) {
+  const postsContainer = document.getElementById("posts-container");
+
+  const postDiv = document.createElement("div");
+  postDiv.className = "post";
+
+  const postContent = document.createElement("p");
+  postContent.textContent = content;
+
+  const postTime = document.createElement("span");
+  postTime.className = "post-time";
+  postTime.textContent = new Date().toLocaleString();
+
+  postDiv.appendChild(postContent);
+  postDiv.appendChild(postTime);
+  postsContainer.insertBefore(postDiv, postsContainer.firstChild);
+}
