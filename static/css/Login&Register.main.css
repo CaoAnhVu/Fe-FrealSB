@@ -10,18 +10,11 @@
 1.  Template default CSS
   1.1 google font
   1.2 Variables
-  1.3 Mixins
-  1.4 Flexbox
-  1.5 Reset
 2. Login and register page
 3.  Header Section
 4.  Hero Section
-5.  Service Section
-6.  Categories Section
-7.  Featured Section
-8.  Latest Product Section
-9.  Contact
-10. Footer Style
+5.  
+6. Footer Style
 -------------------------------------------------------------------*/
 
 /*----------------------------------------*/
@@ -129,6 +122,55 @@ body {
   flex-direction: column;
   height: 100vh;
   padding: 5rem 0;
+}
+
+/* Media Queries */
+
+/* Tablets */
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row;
+    min-height: 600px;
+  }
+
+  .toggle-container {
+    display: block;
+    width: 50%;
+  }
+
+  .form-container {
+    width: 50%;
+  }
+
+  .text-container {
+    text-align: left;
+  }
+}
+/* Mobile */
+@media (max-width: 599px) {
+  .container {
+    padding: 10px;
+  }
+
+  .form-container {
+    padding: 10px;
+  }
+
+  .text-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+
+  .social-icons a {
+    margin: 0 5px;
+  }
+
+  .container-footer {
+    padding: 10px;
+  }
 }
 
 .container-footer a {
