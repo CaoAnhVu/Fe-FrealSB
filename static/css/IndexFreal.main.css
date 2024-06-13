@@ -1,90 +1,94 @@
-/* Navbar */
-body {
+* {
   margin: 0;
-}
-
-.navbar {
-  background-color: #000;
-}
-
-.navbar-brand img {
-  height: 40px;
-}
-
-.navbar-nav .nav-link {
-  color: #fff !important;
-  font-weight: bold;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #ccc !important;
-}
-
-.navbar-nav .nav-item {
-  margin-right: 20px;
-}
-
-.form-inline .form-control {
-  background-color: #fff;
-  color: #000;
-  border-radius: 0;
-}
-
-.badge-danger {
-  background-color: red;
-}
-
-.navbar-collapse {
-  justify-content: space-between;
-}
-.footer {
-  background-color: #000;
-  color: #fff;
-  padding: 40px 20px;
-}
-.footer .footer-logo img {
-  height: 50px;
-}
-.footer .footer-column {
-  margin-bottom: 20px;
-}
-.footer .footer-column h5 {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-.footer .footer-column ul {
-  list-style: none;
   padding: 0;
+  box-sizing: border-box;
 }
-.footer .footer-column ul li {
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.sidebar,
+.sidebar-right {
+  background-color: #1e1e1e;
+}
+
+.sidebar .logo img,
+.sidebar-right .logo img {
+  width: 100%;
+}
+
+.sidebar .search-bar input,
+.comment-section input {
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.sidebar .menu ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar .community h5,
+.sidebar .upcoming-events h5,
+.sidebar-right .trending h5,
+.sidebar-right .suggested-communities h5,
+.sidebar-right .friends-list h5 {
+  font-size: 16px;
   margin-bottom: 10px;
 }
-.footer .footer-column ul li a {
-  color: #fff;
-  text-decoration: none;
+
+.sidebar .community ul li,
+.sidebar .upcoming-events ul li,
+.sidebar-right .trending ul li,
+.sidebar-right .suggested-communities ul li,
+.sidebar-right .friends-list ul li {
+  margin: 10px 0;
+  font-size: 14px;
 }
-.footer .footer-column ul li a:hover {
-  color: #ccc;
+
+.sidebar .community ul li span,
+.sidebar .upcoming-events ul li span,
+.sidebar-right .trending ul li span,
+.sidebar-right .suggested-communities ul li span,
+.sidebar-right .friends-list ul li span {
+  color: #aaaaaa;
+  font-size: 12px;
 }
-.footer .footer-social {
-  display: flex;
-  gap: 10px;
+
+.content {
+  padding: 20px;
 }
-.footer .footer-social a {
-  color: #fff;
-  font-size: 20px;
+
+.post-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
-/* Hero section styles */
-.hero-section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Adjust text color for better readability on background */
-  text-align: center; /* Center align text */
-  overflow-x: hidden; /* Prevent horizontal scroll */
+
+.post-footer span {
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  .sidebar,
+  .sidebar-right {
+    display: none;
+  }
+  .content {
+    padding: 10px;
+  }
+  .post-header img {
+    width: 40px;
+    height: 40px;
+  }
+  .post-footer span {
+    font-size: 12px;
+  }
 }
