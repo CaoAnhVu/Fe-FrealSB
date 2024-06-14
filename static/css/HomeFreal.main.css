@@ -17,7 +17,7 @@ body {
 
 .sidebar {
   width: 250px;
-  background-color: #242424;
+  background-color: #1e1f24;
   padding: 20px;
   height: 100vh;
   position: fixed;
@@ -85,9 +85,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #242424;
-  border-bottom: 2px solid #333;
-  border-left: 2px solid #333;
+  background-color: #1e1f24;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
 }
 
 .navbar-left ul {
@@ -100,19 +100,48 @@ body {
 }
 
 .navbar-left ul li a {
-  color: #ddd;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.navbar-left ul li a i {
+  margin-right: 20px;
+}
+.navbar-center {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #27292f;
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin-right: 400px;
+}
+.navbar-center ul {
+  list-style: none;
+  display: flex;
+}
+.navbar-center ul li {
+  margin: 0 10px;
+}
+.navbar-center ul li a {
+  color: #a5a7aa;
   text-decoration: none;
   display: flex;
   align-items: center;
 }
-
-.navbar-left ul li a i {
-  margin-right: 5px;
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
-
 .navbar-right a {
+  display: flex;
   margin-left: 15px;
-  color: #ddd;
+  color: #fff;
+  list-style: none;
   text-decoration: none;
 }
 
