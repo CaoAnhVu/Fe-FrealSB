@@ -1,0 +1,234 @@
+/*----------------------------------------*/
+/* 1.1. google fonts
+/*----------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #242424;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+  width: 60px;
+  height: 50px;
+  margin-right: 10px;
+}
+.sidebar .logo span {
+  font-size: 30px;
+  margin-top: 10px;
+  font-weight: bold !important;
+  background: linear-gradient(10deg, rgba(231, 45, 174, 1) 30%, rgba(113, 187, 239, 1) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar .search-bar {
+  margin-bottom: 20px;
+}
+
+.sidebar .search-bar input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #ddd;
+}
+
+.sidebar .navigation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .navigation ul li {
+  margin: 15px 0;
+}
+
+.sidebar .navigation ul li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.main-container {
+  margin-left: 250px; /* width of sidebar */
+  width: calc(100% - 250px);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #242424;
+  border-bottom: 2px solid #333;
+  border-left: 2px solid #333;
+}
+
+.navbar-left ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-left ul li {
+  margin: 0 10px;
+}
+
+.navbar-left ul li a {
+  color: #ddd;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left ul li a i {
+  margin-right: 5px;
+}
+
+.navbar-right a {
+  margin-left: 15px;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.navbar-right .profile-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right .profile-link img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+header input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.post {
+  background-color: #242424;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+}
+
+.post-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.post-info span {
+  font-size: 12px;
+  color: #999;
+}
+
+.post-content p {
+  margin: 10px 0;
+}
+
+.post-content img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  color: #00aaff;
+  cursor: pointer;
+}
+
+.trending {
+  width: 250px;
+  background-color: #242424;
+  padding: 20px;
+  border-left: 1px solid #333;
+}
+
+.trending h2,
+.suggested-community h2,
+.friends-list h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.trending ul,
+.friends-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.trending ul li,
+.friends-list ul li {
+  margin: 10px 0;
+}
+
+.suggested-community button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
