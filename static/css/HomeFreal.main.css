@@ -11,10 +11,10 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #121212;
+  background-color: #17181c;
   color: #ffffff;
 }
-
+/* sodebar begin */
 .sidebar {
   width: 250px;
   background-color: #1e1f24;
@@ -25,6 +25,7 @@ body {
   left: 0;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #333;
 }
 
 .sidebar .logo {
@@ -50,27 +51,47 @@ body {
 .sidebar .search-bar {
   margin-bottom: 20px;
 }
-
-.sidebar .search-bar input {
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 10px;
+  max-width: 300px; /* Điều chỉnh chiều rộng tối đa của search bar */
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-bar i.fa-magnifying-glass {
+  color: #a5a7aa;
+  font-size: 16px;
+}
+
+.search-bar input {
+  width: calc(100% - 20px); /* Để lại không gian cho icon */
+  padding: 10px 35px 10px 25px; /* Điều chỉnh padding để không che lấp icon */
   border-radius: 5px;
   border: none;
-  background-color: #333;
-  color: #ddd;
+  background-color: #27292f;
+  color: #fff;
+  font-size: 14px;
+  margin-left: 6px;
 }
 
-.sidebar .navigation ul {
-  list-style: none;
-  padding: 0;
+.search-bar input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #fff;
 }
-
 .sidebar .navigation ul li {
   margin: 15px 0;
 }
 
 .sidebar .navigation ul li a {
-  color: #ddd;
+  color: #a5a7aa;
   text-decoration: none;
   font-size: 18px;
 }
@@ -79,7 +100,8 @@ body {
   margin-left: 250px; /* width of sidebar */
   width: calc(100% - 250px);
 }
-
+/* sodebar end */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -113,50 +135,172 @@ body {
 .navbar-center {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 5px;
   background-color: #27292f;
   border: 1px solid #333;
   border-radius: 10px;
-  margin-right: 400px;
 }
+
 .navbar-center ul {
   list-style: none;
   display: flex;
 }
+
 .navbar-center ul li {
   margin: 0 10px;
 }
+
 .navbar-center ul li a {
   color: #a5a7aa;
   text-decoration: none;
   display: flex;
   align-items: center;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Add border-radius */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+}
+
+.navbar-center ul li a:hover,
+.navbar-center ul li a:focus {
+  background-color: #33353d; /* Change background color on hover or focus */
+  color: #fff; /* Change text color on hover or focus */
 }
 .navbar-right {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 0;
 }
-.navbar-right a {
-  display: flex;
-  margin-left: 15px;
-  color: #fff;
+.navbar-right ul {
   list-style: none;
-  text-decoration: none;
+  display: flex;
 }
-
-.navbar-right .profile-link {
+.navbar-right ul li {
+  margin: 0 10px;
+  position: relative; /* Để định vị dropdown menu */
+}
+.navbar-right ul li a {
+  color: #fff;
+  text-decoration: none;
   display: flex;
   align-items: center;
 }
-
-.navbar-right .profile-link img {
-  width: 30px;
-  height: 30px;
+.navbar-right ul li a i {
+  font-size: 20px;
+}
+.navbar-right__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-right: 5px;
+  background-color: #27292f;
+}
+.navbar-right .profile-link {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
 }
 
+.navbar-right .profile-link img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.navbar-right .profile-link span {
+  max-width: 50px;
+  margin-right: 5px;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+/* Thêm CSS cho icon */
+.navbar-right .profile-link i.fa-circle-chevron-down {
+  color: #fff;
+  font-size: 20px;
+  margin: 20px 0 0 -20px; /* Điều chỉnh vị trí icon */
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown span {
+  font-size: 14px;
+  color: #fff;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.dropdown ul {
+  background: #27292f;
+  width: 170px;
+  text-align: left;
+  padding: 5px 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.dropdown ul li {
+  list-style: none;
+}
+
+.dropdown ul li a {
+  font-size: 14px;
+  color: #ffffff;
+  padding: 5px 10px;
+  display: block;
+  width: 100%;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #27292f;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow: hidden;
+}
+.dropdown-menu li {
+  width: 100%; /* Đảm bảo chiều rộng của li là 100% của ul */
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #575757;
+  width: 150px; /* Đảm bảo chiều rộng của li là 100% của ul khi hover */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+/* Navbar end */
 .container {
   display: flex;
   padding: 20px;

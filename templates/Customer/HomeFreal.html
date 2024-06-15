@@ -30,6 +30,7 @@
         <span>Freal</span>
       </div>
       <div class="search-bar">
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
         <input type="text" placeholder="Explore Freal..." />
       </div>
       <nav class="navigation">
@@ -47,7 +48,7 @@
         <div class="navbar-left">
           <ul>
             <li>
-              <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+              <a href="HomeFreal.html"><i href="HomeFreal.html" class="fa-solid fa-house"></i> Home</a>
             </li>
           </ul>
         </div>
@@ -61,12 +62,26 @@
           </ul>
         </div>
         <div class="navbar-right">
-          <a href="#"><i class="fas fa-comment-alt"></i></a>
-          <a href="#"><i class="fas fa-bell"></i></a>
-          <a href="#" class="profile-link">
-            <img src="../../static/images/avata/avata1.jpg" alt="Profile" />
-            <span>AndyVu Coder</span>
-          </a>
+          <ul>
+            <li>
+              <a class="navbar-right__item" href="#"><i class="fa-solid fa-comment-dots"></i></a>
+            </li>
+            <li>
+              <a class="navbar-right__item" href="#"><i class="fa-solid fa-bell"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="profile-link">
+                <span>AndyVu Coder</span>
+                <img src="../../static/images/avata/avata1.jpg" alt="Profile" />
+                <i class="fa-solid fa-circle-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">LogOut</a></li>
+                <li><a href="#">Add account</a></li>
+                <li><a href="#">Setting account</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </nav>
       <div class="container">
@@ -118,5 +133,6 @@
       </div>
     </div>
     <script src="https://kit.fontawesome.com/99cbdec5b3.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/script.js"></script>
   </body>
 </html>

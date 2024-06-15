@@ -57,12 +57,8 @@ function checkPasswordMatch() {
 }
 
 // Gọi hàm kiểm tra sự khớp mật khẩu khi trang được tải và sau mỗi lần nhập liệu
-document
-  .getElementById("register-password")
-  .addEventListener("input", checkPasswordMatch);
-document
-  .getElementById("confirm-password")
-  .addEventListener("input", checkPasswordMatch);
+document.getElementById("register-password").addEventListener("input", checkPasswordMatch);
+document.getElementById("confirm-password").addEventListener("input", checkPasswordMatch);
 
 // Kiểm tra mật khẩu mạnh yếu
 function checkPasswordStrength() {
@@ -128,13 +124,11 @@ function validateSignUp() {
   return true; // Cho phép submit form nếu mật khẩu khớp nhau
 }
 
-document
-  .getElementById("sign-up-button")
-  .addEventListener("click", function () {
-    if (validateSignUp()) {
-      window.location.href = "otp.html";
-    }
-  });
+document.getElementById("sign-up-button").addEventListener("click", function () {
+  if (validateSignUp()) {
+    window.location.href = "otp.html";
+  }
+});
 //index
 document.getElementById("post-button").addEventListener("click", function () {
   const content = document.getElementById("post-content").value;
@@ -161,3 +155,21 @@ function addPost(content) {
   postDiv.appendChild(postTime);
   postsContainer.insertBefore(postDiv, postsContainer.firstChild);
 }
+// Dropdown list with Image Profile
+
+document.addEventListener("DOMContentLoaded", function () {
+  const profileLink = document.querySelector(".profile-link");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+
+  profileLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+  });
+
+  // Close the dropdown if clicked outside
+  document.addEventListener("click", function (event) {
+    if (!profileLink.contains(event.target)) {
+      dropdownMenu.style.display = "none";
+    }
+  });
+});
