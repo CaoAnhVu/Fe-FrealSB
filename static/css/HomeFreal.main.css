@@ -311,27 +311,123 @@ body {
   padding: 20px;
   overflow-y: auto;
 }
-
-header input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #333;
-  color: #ddd;
+/* Header-content-think */
+.content-think {
+  background-color: #1e1f24;
+  border-radius: 10px;
+  border: 1px solid #333;
+  padding: 15px;
   margin-bottom: 20px;
+  width: 100%;
+  max-width: 1082px;
+  display: flex;
+  flex-direction: column; /* Thay đổi flex-direction để các phần tử con xếp theo cột dọc */
+  align-items: flex-start; /* Căn chỉnh các phần tử con theo chiều ngang */
 }
 
+.content-think__post {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0px 20px 0px;
+}
+
+.content-think__post img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.content-think__post input[type="text"] {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #27292f;
+  font-size: 16px;
+  outline: none;
+}
+
+.content-think__actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.think-item__right,
+.think-item__left {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.think-item__right li,
+.think-item__left li {
+  margin: 0 5px;
+}
+
+.think-item__right a,
+.think-item__left a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.think-item__right i {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #96979b;
+}
+
+.think-item__left__pen {
+  color: #96979b;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.think-item__left__pen i {
+  margin-right: 5px;
+}
+
+.think-item__left__post {
+  background-color: #1e1f24;
+  padding: 8px 35px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  text-decoration: none;
+  color: #96979b; /* Đảm bảo chữ có màu trắng */
+}
+
+.think-item__left__post:hover {
+  background-color: #33353d;
+  color: #fff;
+}
+.think-item__left__pen:hover {
+  color: #fff;
+}
+.think-item__right i:hover,
+.think-item__left i:hover {
+  color: #fff; /* Màu khi hover */
+}
+
+/* Post Section */
 .post {
-  background-color: #242424;
+  background-color: #1e1f24;
   padding: 20px;
+  border: 1px solid #333;
   border-radius: 10px;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .post-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .post-header img {
@@ -340,10 +436,14 @@ header input {
   border-radius: 50%;
   margin-right: 10px;
 }
-
+.post-info {
+  right: 0;
+  margin-left: -520px;
+}
 .post-info h3 {
   margin: 0;
   font-size: 16px;
+  color: #fff;
 }
 
 .post-info span {
@@ -351,57 +451,175 @@ header input {
   color: #999;
 }
 
+.post-item ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.post-item ul li a {
+  color: #888;
+}
+
+.post-item ul li a:hover {
+  color: #fff;
+}
+
 .post-content p {
   margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .post-content img {
   width: 100%;
   border-radius: 10px;
 }
-
 .post-actions {
+  margin-bottom: 5px;
+  border-bottom: 1px solid #333;
+}
+.post-actions ul {
+  list-style: none;
   display: flex;
   justify-content: space-between;
+  padding: 0;
+  margin: 10px 0 0;
 }
 
-.post-actions button {
-  background: none;
-  border: none;
+.post-actions ul li a {
   color: #00aaff;
-  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.trending {
-  width: 250px;
-  background-color: #242424;
-  padding: 20px;
-  border-left: 1px solid #333;
+.post-actions ul li a i {
+  margin-right: 5px;
 }
 
-.trending h2,
-.suggested-community h2,
-.friends-list h2 {
-  font-size: 18px;
+.post-actions ul li a:hover {
+  color: #fff;
+}
+
+.post-comment {
+  margin-top: 20px;
+}
+
+.content-think__comment {
+  display: flex;
+  align-items: center;
+}
+
+.content-think__comment img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.content-think__comment input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  background-color: #27292f;
+  font-size: 16px;
+  outline: none;
+  margin-right: 10px;
+}
+
+.content-think__comment ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.content-think__comment ul li {
+  margin: 0 5px;
+}
+
+.content-think__comment ul li a {
+  color: #888;
+  text-decoration: none;
+}
+
+.content-think__comment ul li a:hover {
+  color: #fff;
+}
+
+.comment-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: #888;
+}
+
+.comment-list {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
   margin-bottom: 10px;
 }
 
-.trending ul,
-.friends-list ul {
-  list-style: none;
-  padding: 0;
+.comment img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-.trending ul li,
-.friends-list ul li {
-  margin: 10px 0;
+.comment-content {
+  flex: 1;
 }
 
-.suggested-community button {
-  background-color: #00aaff;
+.comment-content span {
+  font-weight: bold;
   color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+}
+
+.comment-content p {
+  margin: 5px 0;
+  color: #aaa;
+}
+
+.comment-content ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 5px 0 0;
+  gap: 10px;
+}
+
+.comment-content ul li a {
+  color: #888;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.comment-content ul li a:hover {
+  color: #fff;
+}
+
+.view-all-comment {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.view-all-comment a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.view-all-comment a:hover {
+  color: #fff;
 }
