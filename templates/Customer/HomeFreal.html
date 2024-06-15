@@ -44,7 +44,7 @@
       </nav>
     </div>
     <div class="main-container">
-      <nav class="navbar">
+      <header class="navbar">
         <div class="navbar-left">
           <ul>
             <li>
@@ -76,17 +76,17 @@
                 <i class="fa-solid fa-circle-chevron-down"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">LogOut</a></li>
+                <li><a href="#">Log out</a></li>
                 <li><a href="#">Add account</a></li>
                 <li><a href="#">Setting account</a></li>
               </ul>
             </li>
           </ul>
         </div>
-      </nav>
+      </header>
       <div class="container">
         <main class="content">
-          <header class="content-think">
+          <div class="content-think">
             <div class="content-think__post">
               <img src="../../static/images/avata/avata1.jpg" alt="profile" />
               <input type="text" placeholder="What's on your mind?" />
@@ -118,7 +118,7 @@
                 </li>
               </ul>
             </div>
-          </header>
+          </div>
           <section class="post">
             <div class="post-header">
               <img src="../../static/images/avata/avata1.jpg" alt="profile" />
@@ -154,6 +154,7 @@
                 </li>
               </ul>
             </div>
+            <div class="post-actions__line"></div>
             <div class="post-comment">
               <div class="content-think__comment">
                 <img src="../../static/images/avata/avata1.jpg" alt="profile" />
@@ -174,34 +175,33 @@
                 </ul>
               </div>
               <div class="comment-options">
-                <li class="dropdown-comment">
+                <div class="dropdown-comment">
                   <a href="#" class="select-item">
                     <span>All comments</span>
                     <i class="fa-solid fa-circle-chevron-down"></i>
                   </a>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu__comment">
                     <li><a href="#">All Comments</a></li>
                     <li><a href="#">Latest comments</a></li>
                   </ul>
-                </li>
+                </div>
                 <span>Sort by: Most popular</span>
               </div>
               <div class="comment-list">
                 <div class="comment">
                   <img src="../../static/images/avata/avata1.jpg" alt="comment-profile" />
                   <div class="comment-content">
-                    <span>Aditya Cah Tegal</span>
+                    <span>AndyVu Coder</span>
                     <p>People getting this type of rejection for AI images, or any images that contains ai generated content, but this is definitely not AI.</p>
                     <ul>
                       <li>
                         <a href="#"><i class="fa-solid fa-arrows-turn-right"></i>Reply comment 12</a>
                       </li>
-                      <li><a href="#">Upvote</a></li>
-                      <li><a href="#">Downvote</a></li>
                     </ul>
                   </div>
                 </div>
               </div>
+              <div class="post-comment__line"></div>
               <div class="view-all-comment">
                 <a href="#">View all comments</a>
               </div>
