@@ -14,7 +14,7 @@ body {
   background-color: #17181c;
   color: #ffffff;
 }
-/* sodebar begin */
+/* Sidebar begin */
 .sidebar {
   width: 250px;
   background-color: #1e1f24;
@@ -39,6 +39,7 @@ body {
   height: 50px;
   margin-right: 10px;
 }
+
 .sidebar .logo span {
   font-size: 30px;
   margin-top: 10px;
@@ -51,12 +52,13 @@ body {
 .sidebar .search-bar {
   margin-bottom: 20px;
 }
+
 .search-bar {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 300px; /* Điều chỉnh chiều rộng tối đa của search bar */
+  max-width: 300px;
 }
 
 .search-bar .search-icon {
@@ -72,8 +74,8 @@ body {
 }
 
 .search-bar input {
-  width: calc(100% - 20px); /* Để lại không gian cho icon */
-  padding: 10px 35px 10px 25px; /* Điều chỉnh padding để không che lấp icon */
+  width: calc(100% - 20px);
+  padding: 10px 35px 10px 25px;
   border-radius: 5px;
   border: none;
   background-color: #27292f;
@@ -86,6 +88,12 @@ body {
   outline: none;
   box-shadow: 0 0 5px #fff;
 }
+
+.sidebar .navigation ul {
+  list-style: none;
+  padding: 0;
+}
+
 .sidebar .navigation ul li {
   margin: 15px 0;
 }
@@ -94,13 +102,41 @@ body {
   color: #a5a7aa;
   text-decoration: none;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 
+.sidebar .navigation ul li a i {
+  margin-right: 10px;
+}
+
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a.active {
+  background-color: #25272d;
+  color: #fff;
+}
+
+.sidebar .navigation ul li a:hover i,
+.sidebar .navigation ul li a.active i {
+  color: #fff;
+}
+
+.new-listing {
+  background-color: #3a3b3f;
+  color: #a5a7aa;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: auto;
+}
+/* Sidebar end */
 .main-container {
   margin-left: 250px; /* width of sidebar */
   width: calc(100% - 250px);
 }
-/* sodebar end */
 /* Navbar */
 .navbar {
   display: flex;
@@ -481,13 +517,14 @@ body {
 .post-actions ul {
   list-style: none;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0;
-  margin: 10px 0 0;
+  margin: 15px 40px 0 40px;
 }
 
 .post-actions ul li a {
-  color: #00aaff;
+  color: #a5a7aa;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -498,7 +535,7 @@ body {
 }
 
 .post-actions ul li a:hover {
-  color: #fff;
+  color: #00aaff;
 }
 .post-actions__line {
   border: 1px solid #333;
