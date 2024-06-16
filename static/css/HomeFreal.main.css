@@ -556,7 +556,7 @@ body {
 
 .post-header {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
 }
@@ -567,8 +567,12 @@ body {
   border-radius: 50%;
   margin-right: 10px;
 }
+/* Post info container */
 .post-info {
-  margin-right: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) */
+  margin-right: auto; /* Adjust margin as needed */
 }
 .post-info h3 {
   margin: 0;
@@ -612,8 +616,8 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0;
+  justify-content: space-around;
+  padding: 10px 0;
   margin: 15px 40px 0 40px;
 }
 
@@ -642,6 +646,7 @@ body {
 .content-think__comment {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .content-think__comment img {
@@ -833,11 +838,27 @@ body {
 }
 /* Aside container */
 .asider {
-  padding: 20px;
+  padding: 10px;
   overflow-y: auto;
-  right: 0;
-  top: 100px;
-  width: 350px; /* Set the width of the asider */
+  width: 380px; /* Set the width of the asider */
+}
+
+/* Notification section */
+.asider-notification {
+  background-color: var(--bg-color-nav-sider);
+  border: 1px solid var(--bg-input-color-line);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow-y: hidden; /* Initially hide the scrollbar */
+  position: relative;
+  transition: max-height 0.5s ease;
+  max-width: 400px;
+}
+.asider-notification .expanded {
+  max-height: 900px; /* Remove the height limit when expanded */
+  overflow-y: auto;
 }
 
 /* Section headers */
@@ -846,30 +867,37 @@ body {
   justify-content: space-between;
   color: var(--white-color-font);
   margin-bottom: 10px;
+  font-size: 16px;
+}
+.asider-notification a i {
+  margin-left: 10px;
+  color: var(--white-color-font);
   font-size: 20px;
 }
-.asider-notification .see {
-  display: block;
-  margin-top: 20px;
-  color: #00aaff;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  transition: color 0.3s;
+
+/* Notification details */
+.notificate-details {
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-input-color-line);
+  transition: background-color 0.3s;
 }
 
-/* Notification section */
-.asider-notification {
-  background-color: var(--bg-color-nav-sider);
-  border: 1px solid var(--bg-input-color-line);
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
+.notificate-details:last-child {
+  border-bottom: none; /* Remove border for the last item */
 }
-.asider .asider-notification ul li a .notificate-details {
+
+.notificate-details:hover {
+  background-color: var(--bg-color-hover);
+}
+
+/* Aligning notificate-name and new-notificate */
+.notificate-name {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  color: var(--white-color-font);
 }
+
 .new-notificate {
   background-color: var(--bg-input-color-line);
   color: var(--grey-color-font);
@@ -879,12 +907,25 @@ body {
   margin-left: 10px;
 }
 
-.asider-notification a i {
-  margin-left: 10px;
-  color: var(--white-color-font);
-  font-size: 20px;
-}
 .new-detail {
+  display: block;
+  color: var(--grey-color-font);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* See all link */
+.asider-notification .see {
+  display: block;
+  margin-top: 20px;
+  color: #00aaff;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.asider-notification .see:hover {
+  color: var(--white-color-font);
 }
 
 /* Friends section */
@@ -915,19 +956,25 @@ body {
 }
 
 /* Custom scrollbar styles */
-.asider::-webkit-scrollbar {
+.asider-notification ul {
+  max-height: 400px; /* Adjust this height as needed */
+  overflow-y: auto;
+  padding-right: 10px; /* Add padding to avoid scrollbar overlap */
+}
+
+.asider-notification ul::-webkit-scrollbar {
   width: 8px;
 }
 
-.asider::-webkit-scrollbar-thumb {
+.asider-notification ul::-webkit-scrollbar-thumb {
   background-color: var(--bg-input-color-line);
   border-radius: 4px;
 }
 
-.asider::-webkit-scrollbar-thumb:hover {
+.asider-notification ul::-webkit-scrollbar-thumb:hover {
   background-color: var(--bg-color-hover);
 }
 
-.asider::-webkit-scrollbar-track {
+.asider-notification ul::-webkit-scrollbar-track {
   background-color: var(--bg-color-nav-sider);
 }

@@ -270,43 +270,119 @@
             <ul>
               <li>
                 <div class="notificate-details">
-                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">12 in hour</strong></span>
-                  <span class="new-detail">78k interested</span>
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">12 in 1 hour</strong></span>
+                  <span class="new-detail">125 post today</span>
                 </div>
               </li>
               <li>
                 <div class="notificate-details">
-                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">12 in hour</strong></span>
-                  <span class="new-detail">78k interested</span>
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">4 in 1 hour</strong></span>
+                  <span class="new-detail">25 post today</span>
                 </div>
               </li>
               <li>
                 <div class="notificate-details">
-                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">12 in hour</strong></span>
-                  <span class="new-detail">78k interested</span>
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">12 in 3 hour</strong></span>
+                  <span class="new-detail">12 post today</span>
                 </div>
               </li>
               <li>
                 <div class="notificate-details">
-                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">12 in hour</strong></span>
-                  <span class="new-detail">78k interested</span>
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">2 in 2 hour</strong></span>
+                  <span class="new-detail">120 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="notificate-details">
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">2 in 2 hour</strong></span>
+                  <span class="new-detail">120 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="notificate-details">
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">2 in 2 hour</strong></span>
+                  <span class="new-detail">120 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="notificate-details">
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">2 in 2 hour</strong></span>
+                  <span class="new-detail">120 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="notificate-details">
+                  <span class="notificate-name">Figma maintenance <strong class="new-notificate">2 in 2 hour</strong></span>
+                  <span class="new-detail">120 post today</span>
                 </div>
               </li>
             </ul>
             <span class="see">See all</span>
           </div>
           <div class="asider-friends">
-            <h2>My friends</h2>
+            <h2>
+              My friend <a href="#"><i class="fa-solid fa-caret-down"></i></a>
+            </h2>
             <ul>
-              <li>Ridwan Beler</li>
-              <li>Maria Galau</li>
-              <li>Chrish Bule</li>
-              <li>Gerrald Kocak</li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">12 </strong></span>
+                  <span class="new-detail__friend">125 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">5</strong></span>
+                  <span class="new-detail__friend">25 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">1</strong></span>
+                  <span class="new-detail__friend">12 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">1</strong></span>
+                  <span class="new-detail__friend">12 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">1</strong></span>
+                  <span class="new-detail__friend">12 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">1</strong></span>
+                  <span class="new-detail__friend">12 post today</span>
+                </div>
+              </li>
+              <li>
+                <div class="friend-details">
+                  <span class="friend-name">Figma maintenance <strong class="new-notificate__friend">1</strong></span>
+                  <span class="new-detail__friend">12 post today</span>
+                </div>
+              </li>
             </ul>
+            <span class="see">See all</span>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const seeAllBtn = document.querySelector(".asider-notification .see");
+        const notificationSection = document.querySelector(".asider-notification");
+
+        seeAllBtn.addEventListener("click", function () {
+          notificationSection.classList.toggle("expanded");
+          seeAllBtn.textContent = notificationSection.classList.contains("expanded") ? "Show less" : "See all";
+        });
+      });
+    </script>
     <script src="https://kit.fontawesome.com/99cbdec5b3.js" crossorigin="anonymous"></script>
     <script src="../../static/js/script.js"></script>
   </body>
