@@ -842,6 +842,31 @@ body {
   overflow-y: auto;
   width: 380px; /* Set the width of the asider */
 }
+/* List styles */
+.asider ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* Section headers */
+.asider h2 {
+  display: flex;
+  justify-content: space-around;
+  color: var(--white-color-font);
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.asider ul li {
+  color: var(--grey-color-font);
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.asider ul li:hover {
+  background-color: var(--bg-color-hover);
+  color: var(--white-color-font);
+}
 
 /* Notification section */
 .asider-notification {
@@ -861,14 +886,6 @@ body {
   overflow-y: auto;
 }
 
-/* Section headers */
-.asider h2 {
-  display: flex;
-  justify-content: space-between;
-  color: var(--white-color-font);
-  margin-bottom: 10px;
-  font-size: 16px;
-}
 .asider-notification a i {
   margin-left: 10px;
   color: var(--white-color-font);
@@ -928,53 +945,114 @@ body {
   color: var(--white-color-font);
 }
 
-/* Friends section */
+/*------------------------- */
+/* Friend  */
+/* ------------------------ */
 .asider-friends {
   background-color: var(--bg-color-nav-sider);
   border: 1px solid var(--bg-input-color-line);
   border-radius: 5px;
-  padding: 20px;
-}
-
-/* List styles */
-.asider ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.asider ul li {
-  color: var(--grey-color-font);
   padding: 10px;
-  border-radius: 5px;
-  transition: all 0.3s;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow-y: hidden; /* Initially hide the scrollbar */
+  position: relative;
+  transition: max-height 0.5s ease;
+  max-width: 400px;
+}
+.asider-friends.expanded {
+  max-height: 900px; /* Remove the height limit when expanded */
+  overflow-y: auto;
 }
 
-.asider ul li:hover {
+.asider-friends a i {
+  margin-left: 10px;
+  color: var(--white-color-font);
+  font-size: 20px;
+}
+
+/* Notification details */
+.friend-details {
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-input-color-line);
+  transition: background-color 0.3s;
+}
+
+.friend-details:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.friend-details:hover {
   background-color: var(--bg-color-hover);
+}
+
+/* Aligning notificate-name and new-notificate */
+.friend-name {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
   color: var(--white-color-font);
 }
 
+.new-notificate__friend {
+  background-color: var(--bg-input-color-line);
+  color: var(--grey-color-font);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  flex-direction: column;
+  align-items: flex-end; /* Align items to the start (left) */
+  margin-left: auto; /* Adjust margin as needed */
+}
+
+.new-detail__friend {
+  display: block;
+  color: var(--grey-color-font);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* See all link */
+.asider-friends .view {
+  display: block;
+  margin-top: 20px;
+  color: #00aaff;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.asider-friends .view:hover {
+  color: var(--white-color-font);
+}
+/* Friend section end */
+
 /* Custom scrollbar styles */
-.asider-notification ul {
+.asider-notification ul,
+.asider-friends ul {
   max-height: 400px; /* Adjust this height as needed */
   overflow-y: auto;
   padding-right: 10px; /* Add padding to avoid scrollbar overlap */
 }
 
-.asider-notification ul::-webkit-scrollbar {
+.asider-notification ul::-webkit-scrollbar,
+.asider-friends ul::-webkit-scrollbar {
   width: 8px;
 }
 
-.asider-notification ul::-webkit-scrollbar-thumb {
+.asider-notification ul::-webkit-scrollbar-thumb,
+.asider-friends ul::-webkit-scrollbar-thumb {
   background-color: var(--bg-input-color-line);
+  cursor: pointer;
   border-radius: 4px;
 }
 
-.asider-notification ul::-webkit-scrollbar-thumb:hover {
+.asider-notification ul::-webkit-scrollbar-thumb:hover,
+.asider-friends ul::-webkit-scrollbar-thumb:hover {
   background-color: var(--bg-color-hover);
 }
 
-.asider-notification ul::-webkit-scrollbar-track {
+.asider-notification ul::-webkit-scrollbar-track,
+.asider-friends ul::-webkit-scrollbar-track {
   background-color: var(--bg-color-nav-sider);
 }
