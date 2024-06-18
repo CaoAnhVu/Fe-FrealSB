@@ -53,16 +53,6 @@
   --dark-color: #343a40;
 }
 
-/* @mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* @mixin box-shadow($x, $y, $blur, $spread, $color) {
-  box-shadow: $x $y $blur $spread $color;
-} */
-
 /*----------------------------------------*/
 /* 1.4. Flexbox
 /*----------------------------------------*/
@@ -73,10 +63,6 @@
 .flex-column {
   flex-direction: column;
 }
-
-/* .flex-center {
-  @include flex-center;
-} */
 
 .flex-between {
   justify-content: space-between;
