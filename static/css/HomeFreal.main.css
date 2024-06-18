@@ -20,11 +20,13 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #17181c;
   color: #ffffff;
+  overflow-x: hidden;
 }
 
 /* Sidebar begin */
 .sidebar {
   width: 280px;
+  z-index: 1000;
   background-color: var(--bg-color-nav-sider);
   padding: 15px;
   height: 100vh;
@@ -35,6 +37,10 @@ body {
   flex-direction: column;
   border-right: 1px solid var(--bg-input-color-line);
   overflow-y: auto; /* Enable vertical scrolling */
+  transition: width 0.3s ease;
+}
+.sidebar.collapsed {
+  width: 70px; /* Độ rộng của sidebar khi bị thu nhỏ */
 }
 /* Customize scrollbar */
 .sidebar::-webkit-scrollbar {
@@ -229,8 +235,12 @@ body {
 /* End of styles */
 /* Sidebar end */
 .main-container {
-  margin-left: 250px; /* width of sidebar */
-  width: calc(100% - 250px);
+  margin-left: 250px; /* Độ rộng của sidebar */
+  width: calc(100% - 250px); /* Phần còn lại của chiều rộng */
+  transition: margin-left 0.3s ease;
+}
+.main-container.collapsed {
+  margin-left: 70px; /* Khoảng cách từ bên trái của main content đến sidebar khi sidebar bị thu nhỏ */
 }
 /* Navbar */
 .navbar {
@@ -276,6 +286,7 @@ body {
 .navbar-center ul {
   list-style: none;
   display: flex;
+  margin: 0;
 }
 
 .navbar-center ul li {
@@ -432,7 +443,7 @@ body {
   visibility: visible;
 }
 /* Navbar end */
-.container {
+.container-body {
   display: flex;
   padding: 30px;
 }
@@ -641,14 +652,15 @@ body {
   color: var(--grey-color-font);
 }
 
-.modal-body input {
+.modal-body textarea {
   width: 100%;
   border: none;
   outline: none;
   margin-bottom: 1rem;
 }
 
-.form-control {
+.form-control,
+textarea {
   display: block;
   width: 100%;
   height: auto;
@@ -663,15 +675,15 @@ body {
   background-clip: padding-box;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: none !important; /* Remove the default border */
+  resize: vertical; /* Allow vertical resizing */
 }
-textarea {
-  border: none !important;
-}
+
 .form-control:focus {
   color: var(--grey-color-font);
   background-color: var(--bg-color-nav-sider);
   border-color: var(--bg-color-nav-sider);
-  outline: 0;
+  outline: none;
 }
 
 .modal-body .actions {
@@ -723,12 +735,13 @@ textarea {
   height: auto;
 }
 
-/* CSS for the image upload preview */
+/* Additional styles for the image upload preview */
 .image-preview {
   width: 100%;
   min-width: 565px;
   min-height: 200px;
   border: 2px solid var(--bg-input-color-line);
+  border-radius: 10px;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -736,18 +749,23 @@ textarea {
   font-family: sans-serif;
   position: relative;
 }
+
 .image-preview__image {
+  border-radius: 10px;
   display: none;
   width: 100%;
 }
+
 .image-preview__default-text {
   position: absolute;
   color: var(--grey-color-font);
 }
+
 .image-preview .fa-folder-plus {
   font-size: 40px;
   padding: 10px;
 }
+
 /* Close image button */
 .close-image {
   display: flex;
@@ -773,7 +791,7 @@ textarea {
 
 .close-image:hover {
   background-color: var(--bg-color-hover);
-  color: var(--white-color-font); /* Add this line to change the color to white on hover */
+  color: var(--white-color-font);
   cursor: pointer;
 }
 .btn-upload {
@@ -1282,7 +1300,7 @@ textarea {
 /* Custom scrollbar styles */
 .asider-notification ul,
 .asider-friends ul {
-  max-height: 400px; /* Adjust this height as needed */
+  max-height: 550px; /* Adjust this height as needed */
   overflow-y: auto;
   padding-right: 10px; /* Add padding to avoid scrollbar overlap */
 }
