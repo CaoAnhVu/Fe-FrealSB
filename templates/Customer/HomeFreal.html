@@ -193,19 +193,30 @@
                 <div class="modal-line"></div>
                 <div class="modal-body">
                   <div class="header-info">
-                    <img src="../../static/images/avata/avata1.jpg" alt="profile" />
+                    <img class="info-picture" src="../../static/images/avata/avata1.jpg" alt="profile" />
                     <div class="modal-info">
                       <h3>AndyVu Coder</h3>
                       <span>Công khai</span>
                     </div>
                   </div>
                   <textarea class="form-control" placeholder="Vũ ơi, bạn đang nghĩ gì thế?" id="postText"></textarea>
+                  <div id="imageUploadContainer" style="display: none">
+                    <div class="image-preview" id="imagePreview">
+                      <img src="" alt="Image Preview" class="image-preview__image" />
+                      <span class="image-preview__default-text"><i class="fa-solid fa-folder-plus"></i>Add photos/videos or drag and drop</span>
+                      <div class="close-image" data-dismiss="image" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                      </div>
+                    </div>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none" />
+                    <label for="imageUpload" class="btn btn-upload">Chọn ảnh</label>
+                  </div>
                   <div class="actions">
+                    <a href="#" id="addImage"><i class="far fa-images"></i></a>
                     <a href="#"><i class="fas fa-font"></i></a>
                     <a href="#"><i class="fas fa-user-friends"></i></a>
                     <a href="#"><i class="far fa-smile"></i></a>
                     <a href="#"><i class="fas fa-map-marker-alt"></i></a>
-                    <a href="#"><i class="far fa-images"></i></a>
                     <a href="#"><i class="fas fa-paperclip"></i></a>
                   </div>
                 </div>
@@ -436,6 +447,53 @@
         textarea.addEventListener("input", function () {
           this.style.height = "auto";
           this.style.height = this.scrollHeight + "px";
+        });
+      });
+      //Upload image
+      document.addEventListener("DOMContentLoaded", function () {
+        var textarea = document.getElementById("postText");
+        var addImageBtn = document.getElementById("addImage");
+        var imageUploadContainer = document.getElementById("imageUploadContainer");
+        var imageUpload = document.getElementById("imageUpload");
+        var imagePreview = document.getElementById("imagePreview");
+        var imagePreviewImage = imagePreview.querySelector(".image-preview__image");
+        var imagePreviewDefaultText = imagePreview.querySelector(".image-preview__default-text");
+        var closeImageBtn = imagePreview.querySelector(".close-image");
+
+        textarea.addEventListener("input", function () {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+        });
+
+        addImageBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          imageUploadContainer.style.display = "block";
+        });
+
+        imageUpload.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            const reader = new FileReader();
+            imagePreviewDefaultText.style.display = "none";
+            imagePreviewImage.style.display = "block";
+            reader.addEventListener("load", function () {
+              imagePreviewImage.setAttribute("src", this.result);
+            });
+            reader.readAsDataURL(file);
+          } else {
+            imagePreviewDefaultText.style.display = null;
+            imagePreviewImage.style.display = null;
+            imagePreviewImage.setAttribute("src", "");
+          }
+        });
+
+        closeImageBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          imagePreviewDefaultText.style.display = null;
+          imagePreviewImage.style.display = "none";
+          imagePreviewImage.setAttribute("src", "");
+          imageUploadContainer.style.display = "none";
+          imageUpload.value = "";
         });
       });
     </script>

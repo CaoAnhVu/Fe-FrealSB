@@ -579,20 +579,25 @@ body {
   margin-bottom: 0;
   line-height: 1.5;
 }
+.close-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-input-color-line);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
 .modal-header .close-modal {
   margin: 0;
   font-size: 1.5rem;
   color: var(--grey-color-font);
 }
-.close-modal i.fa-xmark {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: var(--bg-input-color-line);
-  cursor: pointer;
-}
-.close-modal i.fa-xmark:hover {
+
+.close-modal:hover {
+  color: var(--white-color-font);
   background-color: var(--bg-color-hover);
   cursor: pointer;
 }
@@ -610,7 +615,7 @@ body {
   width: 100%;
   margin-bottom: 1rem;
 }
-.modal-body img {
+.modal-body .info-picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -682,6 +687,11 @@ textarea {
   text-decoration: none;
   color: var(--grey-color-font);
   font-size: 1.25rem;
+  transition: font-size 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.modal-body .actions a:hover {
+  font-size: 1.5rem;
+  color: var(--white-color-font);
 }
 
 .modal-footer {
@@ -713,15 +723,76 @@ textarea {
   height: auto;
 }
 
-.close-modal {
+/* CSS for the image upload preview */
+.image-preview {
+  width: 100%;
+  min-width: 565px;
+  min-height: 200px;
+  border: 2px solid var(--bg-input-color-line);
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: sans-serif;
+  position: relative;
+}
+.image-preview__image {
+  display: none;
+  width: 100%;
+}
+.image-preview__default-text {
+  position: absolute;
+  color: var(--grey-color-font);
+}
+.image-preview .fa-folder-plus {
+  font-size: 40px;
+  padding: 10px;
+}
+/* Close image button */
+.close-image {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  right: 5px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  padding: 5px;
   background-color: var(--bg-input-color-line);
   cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.image-preview .close-image {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--grey-color-font);
+}
+
+.close-image:hover {
+  background-color: var(--bg-color-hover);
+  color: var(--white-color-font); /* Add this line to change the color to white on hover */
+  cursor: pointer;
+}
+.btn-upload {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--grey-color-font);
+  background-color: var(--bg-color-nav-sider);
+  border: 1px solid var(--bg-input-color-line);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-upload:hover {
+  color: var(--white-color-font);
+  background-color: var(--bg-color-hover);
 }
 /* Modal-content-think end */
 
