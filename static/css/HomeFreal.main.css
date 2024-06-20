@@ -1415,6 +1415,126 @@ textarea {
 /*----------------------------------------*/
 /* Travel section begin */
 /*----------------------------------------*/
+.container {
+  padding: 20px;
+}
+
+.section-title {
+  color: var(--grey-color-font);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.nav-tabs {
+  border: none;
+  margin-bottom: 30px;
+}
+.nav-tabs .nav-link {
+  font-weight: bold;
+  color: var(--grey-color-font);
+  margin: 5px;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--bg-color-nav-sider);
+  font-weight: bold;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background-color: var(--bg-color-hover);
+  color: var(--white-color-font);
+  border-radius: 5px;
+}
+
+.nav-tabs .see-all {
+  font-weight: normal;
+  color: #007bff;
+}
+
+.card-deck .card {
+  min-width: 200px;
+  border: none;
+}
+
+.card-img-top {
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.card-text .rating {
+  color: #ffc107;
+}
+
+.calendar {
+  text-align: center;
+}
+
+.month-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.table .selected {
+  background-color: #d1e7dd;
+  color: #000;
+}
+
+.best-resorts .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+}
+
+.resort-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.resort-name {
+  font-weight: bold;
+}
+
+.resort-location {
+  color: gray;
+  font-size: 14px;
+}
+
+.badge-primary {
+  background-color: #007bff;
+  font-size: 14px;
+}
+
+.row.mt-5 {
+  display: flex;
+  justify-content: space-between;
+}
 
 /*----------------------------------------*/
 /* Travel section end */
