@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freal Event</title>
+    <!-- Bootstrap -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link href="../../static/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../static/css/swiper-bundle.min.css" />
+
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../static/vendor/font-awesome/mdi/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="../../static/vendor/font-awesome/css/vendor.bundle.base.css" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../static/js/jquery.dataTables.min.js" />
+    <link rel="stylesheet" href="../../static/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/Assets/css/toastr.min.css" />
+    <script src="../../static/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/HomeFreal.main.css" />
+    <!-- End layout styles -->
+    <script src="https://kit.fontawesome.com/99cbdec5b3.js" crossorigin="anonymous"></script>
+    <!-- shortcut -->
+    <link rel="shortcut icon" href="../../static/images/logo.png" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <img src="../../static/images/logo.png" alt="Freal Logo" />
+        <span>Freal</span>
+      </div>
+      <div class="search-bar">
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" placeholder="Explore Freal..." />
+      </div>
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#"><i class="fa-solid fa-house"></i>Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-regular fa-bookmark"></i>Storage</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-blog"></i>Blog</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-calendar-days"></i>Freal events <span class="new-listing">4 new </span></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-regular fa-newspaper"></i>News feed <span class="new-listing">4 new </span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="post-comment__line"></div>
+      <div class="upcoming-event">
+        <span>Upcoming event <strong class="new-event">12</strong></span>
+      </div>
+      <div class="event-navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <div class="event-date">20<br />Dec</div>
+              <div class="event-details">
+                <span class="event-name">Picnic</span>
+                <span class="new-work">78k interested · 7.7k going</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="event-date">28<br />Jan</div>
+              <div class="event-details">
+                <span class="event-name">Explorative</span>
+                <span class="new-work">31k interested · 7.7k going</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="event-date">12<br />Feb</div>
+              <div class="event-details">
+                <span class="event-name">Climbing</span>
+                <span class="new-work">19k interested · 5.7k going</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="event-date">18<br />Mar</div>
+              <div class="event-details">
+                <span class="event-name">Cycling</span>
+                <span class="new-work">28k interested · 1.7k going</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-container">
+      <header class="navbar">
+        <div class="navbar-left">
+          <ul>
+            <li>
+              <a href="HomeFreal.html"><i href="HomeFreal.html" class="fa-solid fa-house"></i> Home</a>
+            </li>
+          </ul>
+          <!-- <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button> -->
+        </div>
+        <div class="navbar-center">
+          <ul>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Community feed</a></li>
+            <li>
+              <a href="#">Mutual friend <span></span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-right">
+          <ul>
+            <li>
+              <a class="navbar-right__item" href="#"><i class="fa-solid fa-comment-dots"></i></a>
+            </li>
+            <li>
+              <a class="navbar-right__item" href="#"><i class="fa-solid fa-bell"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="profile-link">
+                <span>AndyVu Coder</span>
+                <img src="../../static/images/avata/avata1.jpg" alt="Profile" />
+                <i class="fa-solid fa-circle-chevron-down"></i>
+              </a>
+              <ul class="dropdown-list__menu">
+                <li><a href="#">Log out</a></li>
+                <li><a href="#">Add account</a></li>
+                <li><a href="#">Setting account</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="container-body">
+        <main class="content"></main>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const seeAllBtn = document.querySelector(".asider-notification .see");
+        const notificationSection = document.querySelector(".asider-notification");
+
+        seeAllBtn.addEventListener("click", function () {
+          notificationSection.classList.toggle("expanded");
+          seeAllBtn.textContent = notificationSection.classList.contains("expanded") ? "Show less" : "See all";
+        });
+      });
+      // modal
+      $(document).ready(function () {
+        $("#thinkModal").on("shown.bs.modal", function () {
+          $("#myInput").trigger("focus");
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        var textarea = document.getElementById("postText");
+
+        textarea.addEventListener("input", function () {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+        });
+      });
+      //Upload image
+      document.addEventListener("DOMContentLoaded", function () {
+        var textarea = document.getElementById("postText");
+        var addImageBtn = document.getElementById("addImage");
+        var imageUploadContainer = document.getElementById("imageUploadContainer");
+        var imageUpload = document.getElementById("imageUpload");
+        var imagePreview = document.getElementById("imagePreview");
+        var imagePreviewImage = imagePreview.querySelector(".image-preview__image");
+        var imagePreviewDefaultText = imagePreview.querySelector(".image-preview__default-text");
+        var closeImageBtn = imagePreview.querySelector(".close-image");
+
+        textarea.addEventListener("input", function () {
+          this.style.height = "auto";
+          this.style.height = this.scrollHeight + "px";
+        });
+
+        addImageBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          imageUploadContainer.style.display = "block";
+        });
+
+        imageUpload.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            const reader = new FileReader();
+            imagePreviewDefaultText.style.display = "none";
+            imagePreviewImage.style.display = "block";
+            reader.addEventListener("load", function () {
+              imagePreviewImage.setAttribute("src", this.result);
+            });
+            reader.readAsDataURL(file);
+          } else {
+            imagePreviewDefaultText.style.display = null;
+            imagePreviewImage.style.display = null;
+            imagePreviewImage.setAttribute("src", "");
+          }
+        });
+
+        closeImageBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          imagePreviewDefaultText.style.display = null;
+          imagePreviewImage.style.display = "none";
+          imagePreviewImage.setAttribute("src", "");
+          imageUploadContainer.style.display = "none";
+          imageUpload.value = "";
+        });
+      });
+      //nav-menu
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const minimizeButton = document.querySelector('[data-toggle="minimize"]');
+      //   const sidebar = document.querySelector(".sidebar");
+      //   const mainContainer = document.querySelector(".main-container");
+
+      //   minimizeButton.addEventListener("click", function () {
+      //     sidebar.classList.toggle("collapsed");
+      //     mainContainer.classList.toggle("collapsed");
+      //   });
+      // });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/99cbdec5b3.js" crossorigin="anonymous"></script>
+    <script src="../../static/js/script.js"></script>
+  </body>
+</html>

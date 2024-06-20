@@ -22,8 +22,9 @@ body {
   color: #ffffff;
   overflow-x: hidden;
 }
-
-/* Sidebar begin */
+/*----------------------------------------*/
+/* Sidebar begin 
+/*----------------------------------------*/
 .sidebar {
   width: 280px;
   z-index: 1000;
@@ -42,7 +43,11 @@ body {
 .sidebar.collapsed {
   width: 70px; /* Độ rộng của sidebar khi bị thu nhỏ */
 }
-/* Customize scrollbar */
+
+/*----------------------------------------*/
+/* Customize scrollbar 
+/*----------------------------------------*/
+
 .sidebar::-webkit-scrollbar {
   width: 8px;
 }
@@ -163,7 +168,11 @@ body {
   font-size: 12px;
   margin-left: auto;
 }
-/*Event begin  */
+
+/*----------------------------------------*/
+/*Event begin 
+/*----------------------------------------*/
+
 .sidebar .upcoming-event {
   font-size: 16px;
   color: var(--white-color-font);
@@ -232,8 +241,13 @@ body {
   color: var(--grey-color-font);
 }
 
-/* End of styles */
-/* Sidebar end */
+/*----------------------------------------*/
+/* End of styles
+/*----------------------------------------*/
+/*----------------------------------------*/
+/* Sidebar end
+/*----------------------------------------*/
+
 .main-container {
   margin-left: 250px; /* Độ rộng của sidebar */
   width: calc(100% - 250px); /* Phần còn lại của chiều rộng */
@@ -242,7 +256,11 @@ body {
 .main-container.collapsed {
   margin-left: 70px; /* Khoảng cách từ bên trái của main content đến sidebar khi sidebar bị thu nhỏ */
 }
-/* Navbar */
+
+/*----------------------------------------*/
+/* Navbar 
+/*----------------------------------------*/
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -363,7 +381,10 @@ body {
   text-overflow: clip;
 }
 
-/* Thêm CSS cho icon */
+/*----------------------------------------*/
+/* Thêm CSS cho icon 
+/*----------------------------------------*/
+
 .navbar-right .profile-link i.fa-circle-chevron-down {
   color: var(--white-color-font);
   font-size: 20px;
@@ -409,8 +430,11 @@ body {
   width: 100%;
 }
 
-/* Dropdown menu styles */
-.dropdown-menu {
+/*----------------------------------------*/
+/* Dropdown menu styles 
+/*----------------------------------------*/
+
+.dropdown-list__menu {
   display: none;
   position: absolute;
   top: 100%;
@@ -420,10 +444,10 @@ body {
   z-index: 1;
   overflow: hidden;
 }
-.dropdown-menu li {
+.dropdown-list__menu li {
   width: 100%; /* Đảm bảo chiều rộng của li là 100% của ul */
 }
-.dropdown-menu li a {
+.dropdown-list__menu li a {
   display: block;
   padding: 10px;
   color: var(--white-color-font);
@@ -431,18 +455,24 @@ body {
   width: 100%;
 }
 
-.dropdown-menu li a:hover {
+.dropdown-list__menu li a:hover {
   background-color: var(--bg-color-hover);
   width: 150px; /* Đảm bảo chiều rộng của li là 100% của ul khi hover */
 }
 
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
+/*----------------------------------------*/
+/* Show dropdown on hover
+/*----------------------------------------*/
+
+.dropdown:hover .dropdown-list__menu {
   display: block;
   opacity: 1;
   visibility: visible;
 }
-/* Navbar end */
+/*----------------------------------------*/
+/* Navbar end
+/*----------------------------------------*/
+
 .container-body {
   display: flex;
   padding: 30px;
@@ -453,7 +483,10 @@ body {
   padding: 20px;
   overflow-y: auto;
 }
-/* Header-content-think */
+/*----------------------------------------*/
+/* Header-content-think 
+/*----------------------------------------*/
+
 .content-think {
   background-color: var(--bg-color-nav-sider);
   border-radius: 10px;
@@ -557,8 +590,14 @@ body {
 .think-item__left i:hover {
   color: var(--white-color-font);
 }
-/* Header-content-think end */
-/* Modal-content-think */
+/*----------------------------------------*/
+/* Header-content-think end
+/*----------------------------------------*/
+
+/*----------------------------------------*/
+/* Modal-content-think 
+/*----------------------------------------*/
+
 .modal-header {
   display: flex;
   align-items: center;
@@ -632,7 +671,11 @@ body {
   border-radius: 50%;
   margin-right: 10px;
 }
-/* Post info container */
+
+/*----------------------------------------*/
+/* Post info container
+/*----------------------------------------*/
+
 .modal-body .modal-info {
   display: flex;
   flex-direction: column;
@@ -718,8 +761,10 @@ textarea {
   width: 100%;
   max-width: 50rem;
 }
+/*----------------------------------------*/
+/* Adjust modal-dialog to expand with content 
+/*----------------------------------------*/
 
-/* Adjust modal-dialog to expand with content */
 .modal-dialog {
   display: flex;
   flex-direction: column;
@@ -734,8 +779,9 @@ textarea {
   width: 100%;
   height: auto;
 }
-
-/* Additional styles for the image upload preview */
+/*----------------------------------------*/
+/* Additional styles for the image upload preview 
+/*----------------------------------------*/
 .image-preview {
   width: 100%;
   min-width: 565px;
@@ -765,8 +811,10 @@ textarea {
   font-size: 40px;
   padding: 10px;
 }
+/*----------------------------------------*/
+/* Close image button
+/*----------------------------------------*/
 
-/* Close image button */
 .close-image {
   display: flex;
   position: absolute;
@@ -812,9 +860,13 @@ textarea {
   color: var(--white-color-font);
   background-color: var(--bg-color-hover);
 }
-/* Modal-content-think end */
+/*----------------------------------------*/
+/* Modal-content-think end 
+/*----------------------------------------*/
 
-/* Post Section */
+/*----------------------------------------*/
+/* Post Section 
+/*----------------------------------------*/
 .post {
   background-color: var(--bg-color-nav-sider);
   padding: 20px;
@@ -837,7 +889,10 @@ textarea {
   border-radius: 50%;
   margin-right: 10px;
 }
-/* Post info container */
+
+/*----------------------------------------*/
+/* Post info container
+/*----------------------------------------*/
 .post-info {
   display: flex;
   flex-direction: column;
@@ -966,7 +1021,9 @@ textarea {
   color: var(--grey-color-font);
 }
 
-/* Thêm CSS cho icon */
+/*----------------------------------------*/
+/* Thêm CSS cho icon 
+/*----------------------------------------*/
 .comment-options .dropdown-comment i.fa-circle-chevron-down {
   color: var(--white-color-font);
   font-size: 16px;
@@ -1023,7 +1080,9 @@ textarea {
   background-color: var(--bg-color-hover);
 }
 
-/* Show dropdown on hover */
+/*----------------------------------------*/
+/* Show dropdown on hover
+/*----------------------------------------*/
 .dropdown-comment:hover .dropdown-menu__comment {
   display: block;
   opacity: 1;
@@ -1106,24 +1165,34 @@ textarea {
 .view-all-comment a:hover {
   color: var(--white-color-font);
 }
-/* Aside container */
+
+/*----------------------------------------*/
+/* Aside container 
+/*----------------------------------------*/
 .asider {
   padding: 10px;
   overflow-y: auto;
   width: 380px; /* Set the width of the asider */
 }
+
+/*----------------------------------------*/
 /* List styles */
+/*----------------------------------------*/
 .asider ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
+/*----------------------------------------*/
 /* Section headers */
+/*----------------------------------------*/
 .asider h2 {
   display: flex;
   justify-content: space-around;
   color: var(--white-color-font);
   margin-bottom: 10px;
+  padding: 15px 0px;
   font-size: 16px;
 }
 .asider ul li {
@@ -1138,7 +1207,9 @@ textarea {
   color: var(--white-color-font);
 }
 
+/*----------------------------------------*/
 /* Notification section */
+/*----------------------------------------*/
 .asider-notification {
   background-color: var(--bg-color-nav-sider);
   border: 1px solid var(--bg-input-color-line);
@@ -1161,8 +1232,9 @@ textarea {
   color: var(--white-color-font);
   font-size: 20px;
 }
-
+/*----------------------------------------*/
 /* Notification details */
+/*----------------------------------------*/
 .notificate-details {
   padding: 10px;
   border-bottom: 1px solid var(--bg-input-color-line);
@@ -1176,8 +1248,9 @@ textarea {
 .notificate-details:hover {
   background-color: var(--bg-color-hover);
 }
-
+/*----------------------------------------*/
 /* Aligning notificate-name and new-notificate */
+/*----------------------------------------*/
 .notificate-name {
   display: flex;
   align-items: center;
@@ -1200,8 +1273,9 @@ textarea {
   font-size: 14px;
   margin-top: 5px;
 }
-
+/*----------------------------------------*/
 /* See all link */
+/*----------------------------------------*/
 .asider-notification .see {
   display: block;
   margin-top: 20px;
@@ -1240,8 +1314,9 @@ textarea {
   color: var(--white-color-font);
   font-size: 20px;
 }
-
+/*----------------------------------------*/
 /* Notification details */
+/*----------------------------------------*/
 .friend-details {
   padding: 10px;
   border-bottom: 1px solid var(--bg-input-color-line);
@@ -1255,8 +1330,9 @@ textarea {
 .friend-details:hover {
   background-color: var(--bg-color-hover);
 }
-
+/*----------------------------------------*/
 /* Aligning notificate-name and new-notificate */
+/*----------------------------------------*/
 .friend-name {
   display: flex;
   align-items: center;
@@ -1281,8 +1357,9 @@ textarea {
   font-size: 14px;
   margin-top: 5px;
 }
-
+/*----------------------------------------*/
 /* See all link */
+/*----------------------------------------*/
 .asider-friends .view {
   display: block;
   margin-top: 20px;
@@ -1295,9 +1372,14 @@ textarea {
 .asider-friends .view:hover {
   color: var(--white-color-font);
 }
+/*----------------------------------------*/
 /* Friend section end */
+/*----------------------------------------*/
 
+/*----------------------------------------*/
 /* Custom scrollbar styles */
+/*----------------------------------------*/
+
 .asider-notification ul,
 .asider-friends ul {
   max-height: 550px; /* Adjust this height as needed */
@@ -1326,3 +1408,14 @@ textarea {
 .asider-friends ul::-webkit-scrollbar-track {
   background-color: var(--bg-color-nav-sider);
 }
+/*----------------------------------------*/
+/* Custom scrollbar styles end */
+/*----------------------------------------*/
+
+/*----------------------------------------*/
+/* Travel section begin */
+/*----------------------------------------*/
+
+/*----------------------------------------*/
+/* Travel section end */
+/*----------------------------------------*/
