@@ -952,7 +952,29 @@ textarea {
   display: flex;
   align-items: center;
 }
+/* Add this to your CSS file */
+/* Định dạng cho nút like */
+.hover-action {
+  text-decoration: none;
+  color: var(--grey-color-font);
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
 
+.hover-action.active {
+  color: #00aaff;
+  border-color: #00aaff;
+}
+
+.hover-action:hover {
+  color: #00aaff;
+  background-color: var(--bg-color-hover);
+}
+.count-number {
+  padding: 10px;
+}
 .post-actions ul li a i {
   margin-right: 5px;
 }
@@ -998,6 +1020,7 @@ textarea {
   display: flex;
   align-items: center;
   margin-left: -100px;
+  margin-bottom: 0;
 }
 
 .content-think__comment ul li {
@@ -1165,6 +1188,10 @@ textarea {
 .view-all-comment a:hover {
   color: var(--white-color-font);
 }
+
+/*----------------------------------------*/
+/* Post section end
+/*----------------------------------------*/
 
 /*----------------------------------------*/
 /* Aside container 
@@ -1453,19 +1480,33 @@ textarea {
   font-weight: normal;
   color: #007bff;
 }
-
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--bg-input-color-line);
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
 .card-deck .card {
   min-width: 200px;
+  border-radius: 20px;
   border: none;
 }
 
 .card-img-top {
-  height: 150px;
+  height: 300px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   object-fit: cover;
 }
 
 .card-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 }
 

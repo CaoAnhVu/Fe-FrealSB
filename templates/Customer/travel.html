@@ -149,165 +149,230 @@
           </ul>
         </div>
       </header>
-      <div class="container-body">
-        <main class="content">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <h2 class="section-title">Hotels</h2>
-                <ul class="nav nav-tabs" id="hotelTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="most-popular-tab" data-toggle="tab" href="#most-popular" role="tab" aria-controls="most-popular" aria-selected="true">Most Popular</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="best-price-tab" data-toggle="tab" href="#best-price" role="tab" aria-controls="best-price" aria-selected="false">Best Price</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="near-me-tab" data-toggle="tab" href="#near-me" role="tab" aria-controls="near-me" aria-selected="false">Near Me</a>
-                  </li>
-                  <li class="nav-item ml-auto" role="presentation">
-                    <a class="nav-link see-all" href="#">See all</a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="hotelTabContent">
-                  <div class="tab-pane fade show active" id="most-popular" role="tabpanel" aria-labelledby="most-popular-tab">
-                    <div class="card-deck">
-                      <div class="card">
-                        <img src="image1.jpg" class="card-img-top" alt="The Base Casuiline, Iceland" />
-                        <div class="card-body">
-                          <h5 class="card-title">The Base Casuiline, Iceland</h5>
-                          <p class="card-text">
-                            <span>3-5 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="image2.jpg" class="card-img-top" alt="Jhon Mugal Agrabad Mahal" />
-                        <div class="card-body">
-                          <h5 class="card-title">Jhon Mugal Agrabad Mahal</h5>
-                          <p class="card-text">
-                            <span>5-7 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="image3.jpg" class="card-img-top" alt="Haliboin Jamaika Paradise" />
-                        <div class="card-body">
-                          <h5 class="card-title">Haliboin Jamaika Paradise</h5>
-                          <p class="card-text">
-                            <span>2-4 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
-                          </p>
-                        </div>
-                      </div>
+
+      <!-- ---------------- -->
+      <!-- Event container -->
+      <!-- --------------- -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Hotels</h2>
+            <ul class="nav nav-tabs" id="hotelTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="most-popular-tab" data-toggle="tab" href="#most-popular" role="tab" aria-controls="most-popular" aria-selected="true">Most Popular</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="best-price-tab" data-toggle="tab" href="#best-price" role="tab" aria-controls="best-price" aria-selected="false">Best Price</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="near-me-tab" data-toggle="tab" href="#near-me" role="tab" aria-controls="near-me" aria-selected="false">Near Me</a>
+              </li>
+              <li class="nav-item ml-auto" role="presentation">
+                <a class="nav-link see-all" href="#">See all</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="hotelTabContent">
+              <!-- Most-Popular -->
+              <div class="tab-pane fade show active" id="most-popular" role="tabpanel" aria-labelledby="most-popular-tab">
+                <div class="card-deck">
+                  <div class="card">
+                    <img src="../../static/images/travel/travel1.avif" class="card-img-top" alt="The Base Casuiline, Iceland" />
+                    <div class="card-body">
+                      <h5 class="card-title">The Base Casuiline, Iceland</h5>
+                      <p class="card-text">
+                        <span>3-5 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="../../static/images/travel/travel2.avif" class="card-img-top" alt="Jhon Mugal Agrabad Mahal" />
+                    <div class="card-body">
+                      <h5 class="card-title">Jhon Mugal Agrabad Mahal</h5>
+                      <p class="card-text">
+                        <span>5-7 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="../../static/images/travel/travel3.avif" class="card-img-top" alt="Haliboin Jamaika Paradise" />
+                    <div class="card-body">
+                      <h5 class="card-title">Haliboin Jamaika Paradise</h5>
+                      <p class="card-text">
+                        <span>2-4 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="row mt-5">
-                  <div class="col-md-6">
-                    <h3 class="section-title">Available Dates</h3>
-                    <div class="calendar">
-                      <div class="month-selector">
-                        <select class="custom-select" id="month-year">
-                          <option selected>January 2021</option>
-                          <!-- Other months -->
-                        </select>
-                      </div>
-                      <table class="table table-bordered">
-                        <thead>
-                          <tr>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                            <th>Sun</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <!-- Add the dates in the table rows -->
-                          <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>5</td>
-                            <td class="selected">6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>10</td>
-                          </tr>
-                          <tr>
-                            <td>11</td>
-                            <td>12</td>
-                            <td>13</td>
-                            <td>14</td>
-                            <td>15</td>
-                            <td>16</td>
-                            <td>17</td>
-                          </tr>
-                          <tr>
-                            <td>18</td>
-                            <td class="selected">19</td>
-                            <td>20</td>
-                            <td>21</td>
-                            <td>22</td>
-                            <td>23</td>
-                            <td>24</td>
-                          </tr>
-                          <tr>
-                            <td>25</td>
-                            <td>26</td>
-                            <td>27</td>
-                            <td>28</td>
-                            <td>29</td>
-                            <td>30</td>
-                            <td>31</td>
-                          </tr>
-                        </tbody>
-                      </table>
+              </div>
+              <!-- Best-Price -->
+              <div class="tab-pane fade" id="best-price" role="tabpanel" aria-labelledby="best-price-tab">
+                <div class="card-deck">
+                  <div class="card">
+                    <img src="../../static/images/travel/travel4.avif" class="card-img-top" alt="Hotel Luxury, Maldives" />
+                    <div class="card-body">
+                      <h5 class="card-title">Hotel Luxury, Maldives</h5>
+                      <p class="card-text">
+                        <span>3-5 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <h3 class="section-title">Best Resorts</h3>
-                    <div class="best-resorts">
-                      <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-                          <div class="resort-details">
-                            <span class="resort-name">Heritage Resort</span>
-                            <span class="resort-location">Singapore</span>
-                          </div>
-                          <span class="badge badge-primary badge-pill">$120/day</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-                          <div class="resort-details">
-                            <span class="resort-name">Royel Hills Resort</span>
-                            <span class="resort-location">Thailand</span>
-                          </div>
-                          <span class="badge badge-primary badge-pill">$115/day</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
-                          <div class="resort-details">
-                            <span class="resort-name">Greenview Resort</span>
-                            <span class="resort-location">India</span>
-                          </div>
-                          <span class="badge badge-primary badge-pill">$187/day</span>
-                        </li>
-                      </ul>
+                  <div class="card">
+                    <img src="../../static/images/travel/travel5.avif" class="card-img-top" alt="Cottage Paradise, Bali" />
+                    <div class="card-body">
+                      <h5 class="card-title">Cottage Paradise, Bali</h5>
+                      <p class="card-text">
+                        <span>5-7 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="../../static/images/travel/travel6.avif" class="card-img-top" alt="Palm Grove, Australia" />
+                    <div class="card-body">
+                      <h5 class="card-title">Palm Grove, Australia</h5>
+                      <p class="card-text">
+                        <span>2-4 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Near-Me -->
+              <div class="tab-pane fade" id="near-me" role="tabpanel" aria-labelledby="near-me-tab">
+                <div class="card-deck">
+                  <div class="card">
+                    <img src="../../static/images/travel/travel7.avif" class="card-img-top" alt="Hilltop Cabin, Norway" />
+                    <div class="card-body">
+                      <h5 class="card-title">Hilltop Cabin, Norway</h5>
+                      <p class="card-text">
+                        <span>3-5 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="../../static/images/travel/travel8.avif" class="card-img-top" alt="Cityview Inn, Tokyo" />
+                    <div class="card-body">
+                      <h5 class="card-title">Cityview Inn, Tokyo</h5>
+                      <p class="card-text">
+                        <span>5-7 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="../../static/images/travel/travel9.avif" class="card-img-top" alt="Beachfront Bungalow, Thailand" />
+                    <div class="card-body">
+                      <h5 class="card-title">Beachfront Bungalow, Thailand</h5>
+                      <p class="card-text">
+                        <span>2-4 Days</span><span class="rating"><i class="fas fa-star"></i> 4.5</span>
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+                <h3 class="section-title">Available Dates</h3>
+                <div class="calendar">
+                  <div class="month-selector">
+                    <select class="custom-select" id="month-year">
+                      <option selected>January 2021</option>
+                      <!-- Other months -->
+                    </select>
+                  </div>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Add the dates in the table rows -->
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>5</td>
+                        <td class="selected">6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                      </tr>
+                      <tr>
+                        <td>18</td>
+                        <td class="selected">19</td>
+                        <td>20</td>
+                        <td>21</td>
+                        <td>22</td>
+                        <td>23</td>
+                        <td>24</td>
+                      </tr>
+                      <tr>
+                        <td>25</td>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                        <td>29</td>
+                        <td>30</td>
+                        <td>31</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h3 class="section-title">Best Resorts</h3>
+                <div class="best-resorts">
+                  <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+                      <div class="resort-details">
+                        <span class="resort-name">Heritage Resort</span>
+                        <span class="resort-location">Singapore</span>
+                      </div>
+                      <span class="badge badge-primary badge-pill">$120/day</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+                      <div class="resort-details">
+                        <span class="resort-name">Royel Hills Resort</span>
+                        <span class="resort-location">Thailand</span>
+                      </div>
+                      <span class="badge badge-primary badge-pill">$115/day</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+                      <div class="resort-details">
+                        <span class="resort-name">Greenview Resort</span>
+                        <span class="resort-location">India</span>
+                      </div>
+                      <span class="badge badge-primary badge-pill">$187/day</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-        </main>
+        </div>
       </div>
     </div>
     <script>
@@ -328,6 +393,7 @@
         });
       });
     </script>
+    <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

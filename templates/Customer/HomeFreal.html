@@ -15,11 +15,6 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../static/vendor/font-awesome/mdi/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="../../static/vendor/font-awesome/css/vendor.bundle.base.css" />
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../static/js/jquery.dataTables.min.js" />
     <link rel="stylesheet" href="../../static/css/jquery-ui.min.css" />
@@ -113,9 +108,6 @@
               <a href="HomeFreal.html"><i href="HomeFreal.html" class="fa-solid fa-house"></i> Home</a>
             </li>
           </ul>
-          <!-- <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-          </button> -->
         </div>
         <div class="navbar-center">
           <ul>
@@ -229,7 +221,7 @@
               </div>
             </div>
           </div>
-          <section class="post">
+          <div class="post">
             <div class="post-header">
               <img src="../../static/images/avata/avata1.jpg" alt="profile" />
               <div class="post-info">
@@ -247,6 +239,7 @@
                 </ul>
               </div>
             </div>
+            <!-- Post section begin -->
             <div class="post-content">
               <p>What is the reason guys yesterday I uploaded some kind of content they approved it but when today I tried to upload they say we no longer accept this type of content</p>
               <img src="../../static/images/background.avif" alt="post" />
@@ -254,13 +247,25 @@
             <div class="post-actions">
               <ul>
                 <li>
-                  <a href="#"><i class="fa-regular fa-thumbs-up"></i>Liked post 1.7K</a>
+                  <a id="likeButton" href="#" class="hover-action" data-action="like">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    <span>Like post </span>
+                    <span class="count-number" id="likeCount">0</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa-regular fa-comment"></i>Comment 45</a>
+                  <a id="commentButton" href="#" class="hover-action" data-action="comment">
+                    <i class="fa-regular fa-comment"></i>
+                    <span>Comment</span>
+                    <span class="count-number" id="commentCount">0</span>
+                  </a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa-regular fa-share-from-square"></i>Share 12</a>
+                  <a id="shareButton" href="#" class="hover-action" data-action="share">
+                    <i class="fa-regular fa-share-from-square"></i>
+                    <span>Share</span>
+                    <span class="count-number" id="shareCount">0</span>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -268,7 +273,7 @@
             <div class="post-comment">
               <div class="content-think__comment">
                 <img src="../../static/images/avata/avata1.jpg" alt="profile" />
-                <input type="text" placeholder="What's on your mind?" />
+                <input type="text" id="commentInput" placeholder="What's on your mind?" />
                 <ul>
                   <li>
                     <a href="#"><i class="fa-solid fa-camera"></i></a>
@@ -316,7 +321,8 @@
                 <a href="#">View all comments</a>
               </div>
             </div>
-          </section>
+          </div>
+          <!-- Post section end -->
         </main>
         <div class="asider">
           <div class="asider-notification">
@@ -499,17 +505,87 @@
           imageUpload.value = "";
         });
       });
-      //nav-menu
-      // document.addEventListener("DOMContentLoaded", function () {
-      //   const minimizeButton = document.querySelector('[data-toggle="minimize"]');
-      //   const sidebar = document.querySelector(".sidebar");
-      //   const mainContainer = document.querySelector(".main-container");
+      //Like, comment, share
+      document.addEventListener("DOMContentLoaded", function () {
+        const commentButton = document.getElementById("commentButton");
+        const shareButton = document.getElementById("shareButton");
+        const commentInput = document.getElementById("commentInput");
+        var likeButton = document.getElementById("likeButton");
+        var likeCount = document.getElementById("likeCount");
+        var isLiked = false;
 
-      //   minimizeButton.addEventListener("click", function () {
-      //     sidebar.classList.toggle("collapsed");
-      //     mainContainer.classList.toggle("collapsed");
-      //   });
-      // });
+        likeButton.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          let likesCount = parseInt(likeCount.textContent) || 0;
+
+          if (isLiked) {
+            likesCount--;
+            likeButton.classList.remove("active");
+          } else {
+            likesCount++;
+            likeButton.classList.add("active");
+          }
+
+          likeCount.textContent = formatLikesCount(likesCount);
+          isLiked = !isLiked;
+        });
+
+        function formatLikesCount(count) {
+          return count >= 1000 ? (count / 1000).toFixed(1) + "K" : count.toString();
+        }
+
+        // Handle events for like, comment, share buttons
+        document.querySelectorAll(".post-actions").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            const actionType = this.getAttribute("data-action");
+
+            switch (actionType) {
+              case "like":
+                handleLike(this);
+                break;
+              case "comment":
+                handleComment(this);
+                break;
+              case "share":
+                handleShare(this);
+                break;
+              default:
+                console.error("Unknown action type:", actionType);
+                break;
+            }
+          });
+        });
+
+        function handleLike(button) {
+          let likeCountSpan = button.querySelector(".count-number");
+          let likesCount = parseInt(likeCountSpan.textContent) || 0;
+
+          if (button.classList.contains("active")) {
+            likesCount--;
+            button.classList.remove("active");
+          } else {
+            likesCount++;
+            button.classList.add("active");
+          }
+
+          likeCountSpan.textContent = formatLikesCount(likesCount);
+        }
+
+        function handleComment(button) {
+          // Handle comment functionality here
+          console.log("Comment button clicked");
+        }
+        document.getElementById("commentButton").addEventListener("click", function () {
+          document.getElementById("commentInput").focus();
+        });
+        function handleShare(button) {
+          // Handle share functionality here
+          alert("Post shared successfully!");
+          console.log("Share button clicked");
+        }
+      });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
