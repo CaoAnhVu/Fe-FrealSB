@@ -1003,23 +1003,24 @@ textarea {
   margin-right: 10px;
 }
 
-.content-think__comment input[type="text"] {
+.content-think__comment textarea[type="text"] {
   flex: 1;
-  padding: 15px;
+  padding: 15px 0px 0px 15px;
   border: none;
-  border-radius: 25px;
+  border-radius: 44px;
   color: var(--white-color-font);
   background-color: var(--bg-input-color-line);
   font-size: 16px;
   outline: none;
-  margin-right: -42px;
+  margin-right: -48px;
+  min-height: 50px;
 }
 
 .content-think__comment ul {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-left: -100px;
+  margin-left: -140px;
   margin-bottom: 0;
 }
 
@@ -1043,7 +1044,54 @@ textarea {
   margin: 10px 0;
   color: var(--grey-color-font);
 }
+/* Reply Comment */
+.reply-comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
+.reply-comment img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.reply-comment textarea[type="text"] {
+  flex: 1;
+  padding: 15px 0px 0px 15px;
+  border: none;
+  border-radius: 44px;
+  color: var(--white-color-font);
+  background-color: var(--bg-input-color-line);
+  font-size: 16px;
+  outline: none;
+  margin-right: -48px;
+  min-height: 50px;
+}
+
+.reply-comment ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: -140px;
+  margin-bottom: 0;
+}
+
+.reply-comment ul li {
+  margin: 0 10px;
+}
+
+.reply-comment ul li a {
+  color: var(--grey-color-font);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.reply-comment ul li a:hover {
+  color: var(--white-color-font);
+}
 /*----------------------------------------*/
 /* Thêm CSS cho icon 
 /*----------------------------------------*/

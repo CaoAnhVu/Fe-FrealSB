@@ -18,7 +18,6 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../static/js/jquery.dataTables.min.js" />
     <link rel="stylesheet" href="../../static/css/jquery-ui.min.css" />
-    <link rel="stylesheet" href="~/Assets/css/toastr.min.css" />
     <script src="../../static/lib/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="../../static/css/HomeFreal.main.css" />
     <!-- End layout styles -->
@@ -216,7 +215,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">Đăng</button>
+                  <button type="button" class="btn btn-primary">Post</button>
                 </div>
               </div>
             </div>
@@ -233,9 +232,18 @@
                   <li>
                     <a href="#"><i class="fa-regular fa-bookmark"></i></a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                  </li>
+                  </li> -->
+                  <div class="post-heading__more">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <ul class="post-more__dropdown">
+                      <li><a href="#">Edit post</a></li>
+                      <li><a href="#">Delete post</a></li>
+                      <li><a href="#">Save post</a></li>
+                      <li><a href="#">Turn off notifications for this post</a></li>
+                    </ul>
+                  </div>
                 </ul>
               </div>
             </div>
@@ -269,12 +277,16 @@
                 </li>
               </ul>
             </div>
+
             <div class="post-actions__line"></div>
             <div class="post-comment">
               <div class="content-think__comment">
                 <img src="../../static/images/avata/avata1.jpg" alt="profile" />
-                <input type="text" id="commentInput" placeholder="What's on your mind?" />
+                <textarea type="text" id="commentInput" placeholder="What's on your mind?"></textarea>
                 <ul>
+                  <li>
+                    <a href="#"><i class="fa-solid fa-paper-plane" id="sendComment"></i></a>
+                  </li>
                   <li>
                     <a href="#"><i class="fa-solid fa-camera"></i></a>
                   </li>
@@ -302,7 +314,7 @@
                 </div>
                 <span>Sort by: Most popular</span>
               </div>
-              <div class="comment-list">
+              <div id="commentsSection" class="comment-list">
                 <div class="comment">
                   <img src="../../static/images/avata/avata1.jpg" alt="comment-profile" />
                   <div class="comment-content">
@@ -324,6 +336,7 @@
           </div>
           <!-- Post section end -->
         </main>
+
         <div class="asider">
           <div class="asider-notification">
             <h2>
@@ -434,6 +447,7 @@
         </div>
       </div>
     </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const seeAllBtn = document.querySelector(".asider-notification .see");
@@ -508,8 +522,12 @@
       //Like, comment, share
       document.addEventListener("DOMContentLoaded", function () {
         const commentButton = document.getElementById("commentButton");
-        const shareButton = document.getElementById("shareButton");
+        const commentCountElement = document.getElementById("commentCount");
+        let commentCount = 0;
         const commentInput = document.getElementById("commentInput");
+        const shareButton = document.getElementById("shareButton");
+        const shareCountElement = document.getElementById("shareCount");
+        let shareCount = 0;
         var likeButton = document.getElementById("likeButton");
         var likeCount = document.getElementById("likeCount");
         var isLiked = false;
@@ -572,6 +590,27 @@
 
           likeCountSpan.textContent = formatLikesCount(likesCount);
         }
+        commentButton.addEventListener("click", function () {
+          const commentInput = document.getElementById("commentInput");
+          const commentText = commentInput.value.trim();
+          if (commentText) {
+            commentCount++;
+            commentCountElement.textContent = commentCount;
+            commentInput.value = "";
+
+            // Add comment to the DOM
+            const commentSection = document.querySelector(".content-post__comments");
+            const newComment = document.createElement("div");
+            newComment.classList.add("comment");
+            newComment.innerHTML = `
+            <img src="../../static/images/avata/avata1.jpg" alt="Commenter" />
+            <div class="comment-body">
+              <h5>AndyVu Coder</h5>
+              <p>${commentText}</p>/ 
+            </div>`;
+            commentSection.insertBefore(newComment, commentSection.lastElementChild);
+          }
+        });
 
         function handleComment(button) {
           // Handle comment functionality here
@@ -580,11 +619,95 @@
         document.getElementById("commentButton").addEventListener("click", function () {
           document.getElementById("commentInput").focus();
         });
-        function handleShare(button) {
-          // Handle share functionality here
+
+        shareButton.addEventListener("click", function () {
+          shareCount++;
+          shareCountElement.textContent = shareCount;
           alert("Post shared successfully!");
-          console.log("Share button clicked");
+        });
+      });
+      // comment
+      $(document).ready(function () {
+        function addComment(text, isReply = false, parentElement = null) {
+          const commentHtml = `
+                <div class="comment">
+                  <img src="../../static/images/avata/avata1.jpg" alt="comment-profile" />
+                  <div class="comment-content">
+                    <span>AndyVu Coder</span>
+                    <p>${text}</p>
+                    <ul>
+                      <li>
+                        <a href="#"class="reply-btn"><i class="fa-solid fa-arrows-turn-right"></i>Reply comment </a>
+                      </li>
+                    </ul>
+                    <div class="replies"></div>
+                  </div>
+                </div>
+            `;
+
+          if (isReply) {
+            $(parentElement).find(".replies").first().append(commentHtml);
+          } else {
+            $("#commentsSection").append(commentHtml);
+          }
         }
+
+        function handleCommentInput(event) {
+          if (event.type === "keypress" && event.which !== 13) return;
+
+          const commentText = $("#commentInput").val();
+          if (commentText) {
+            addComment(commentText);
+            $("#commentInput").val("");
+          }
+        }
+
+        $("#commentInput").keypress(handleCommentInput);
+        $("#sendComment").click(handleCommentInput);
+
+        $(document).on("click", ".reply-btn", function () {
+          const parentComment = $(this).closest(".comment");
+          if (!parentComment.find(".reply-comment").length) {
+            const replyInputHtml = `
+                <div class=" reply-comment">
+                  <img src="../../static/images/avata/avata1.jpg" alt="profile" />
+                  <textarea type="text" id="commentInput"class="reply-text" placeholder="Trả lời..."> </textarea>
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fa-solid fa-paper-plane send-reply" id="sendComment"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-solid fa-camera"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-regular fa-image"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-solid fa-paperclip"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa-regular fa-face-smile"></i></a>
+                    </li>
+                  </ul>
+              </div>
+                `;
+            parentComment.append(replyInputHtml);
+          }
+        });
+
+        $(document).on("click", ".send-reply", function () {
+          const replyText = $(this).siblings(".reply-text").val();
+          if (replyText) {
+            addComment(replyText, true, $(this).closest(".comment"));
+            $(this).closest(".reply-comment").remove();
+          }
+        });
+
+        $(document).on("keypress", ".reply-text", function (event) {
+          if (event.which === 13) {
+            $(this).siblings(".send-reply").click();
+          }
+        });
       });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
