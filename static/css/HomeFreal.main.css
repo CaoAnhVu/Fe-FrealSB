@@ -405,6 +405,7 @@ body {
 }
 
 .dropdown ul {
+  display: block;
   background: var(--bg-input-color-line);
   width: 170px;
   text-align: left;
@@ -435,7 +436,7 @@ body {
 /*----------------------------------------*/
 
 .dropdown-list__menu {
-  display: none;
+  display: block;
   position: absolute;
   top: 100%;
   right: 0;
@@ -909,66 +910,64 @@ textarea {
   font-size: 12px;
   color: var(--grey-color-font);
 }
+
 .post-item {
   position: relative;
-  display: flex; /* Hiển thị các phần tử con theo chiều ngang */
-  align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+  display: flex;
+  align-items: center;
 }
 
 .post-item i {
   color: var(--grey-color-font);
   font-size: 16px;
+  cursor: pointer; /* Cho biểu tượng có thể nhấp chuột */
+}
+
+.post-item i:hover {
+  color: var(--white-color-font);
 }
 
 .save-item,
 .post-heading__more {
-  display: flex; /* Hiển thị các phần tử con theo chiều ngang */
-  align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
-  padding: 0px 10px 0px 7px;
-  margin: 5px; /* Khoảng cách giữa các phần tử con */
-}
-
-.post-item ul,
-.post-more__dropdown {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.post-item ul li a {
-  color: var(--grey-color-font);
-}
-
-.post-item ul li a:hover {
-  color: var(--white-color-font);
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 7px;
+  margin: 5px;
 }
 
 .post-heading__more {
-  position: relative; /* Đảm bảo dropdown nằm trong khoảng không gian của post-item */
+  position: relative;
+  display: inline-block;
 }
 
 .post-heading__more .fa-solid.fa-ellipsis-vertical {
-  cursor: pointer; /* Biểu tượng '...vertical' có thể được nhấp chuột */
+  cursor: pointer;
 }
 
-.post-heading__more .post-more__dropdown {
-  display: none; /* Ẩn dropdown ban đầu */
+.post-more__dropdown {
+  display: block;
   position: absolute;
-  top: calc(100% + 5px); /* Đặt dropdown bên dưới '...vertical' */
+  list-style: none;
+  top: calc(100% + 5px);
   right: 0;
-  border-radius: 5px;
+  min-width: 300px;
+  padding: 10px;
   background-color: var(--bg-input-color-line);
-  z-index: 1000; /* Đảm bảo dropdown hiển thị trên các phần tử khác */
-  min-width: 200px; /* Độ rộng tối thiểu của dropdown */
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease, all 0.3s ease; /* Hiệu ứng mượt mà khi hiển thị dropdown */
 }
 
 .post-heading__more:hover .post-more__dropdown {
   display: block;
-  /* Hiện dropdown khi hover vào '...vertical' */
+  opacity: 1;
+  visibility: visible;
 }
 
 .post-more__dropdown li {
-  padding: 8px 10px;
+  padding: 10px; /* Tăng khoảng cách giữa các mục trong dropdown */
   transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
 }
 
@@ -978,13 +977,15 @@ textarea {
 
 .post-more__dropdown a {
   text-decoration: none;
-  color: var(--grey-color-font);
-  display: block; /* Chuyển đổi thành phần block để điều chỉnh padding */
+  color: var(--white-color-font);
+  display: block;
+  font-size: 14px;
 }
 
 .post-more__dropdown a:hover {
-  text-decoration: underline;
+  background-color: var(--bg-color-hover);
 }
+
 .post-content p {
   margin: 10px 0;
   font-size: 14px;
@@ -1216,7 +1217,7 @@ textarea {
 /* Show dropdown on hover
 /*----------------------------------------*/
 .dropdown-comment:hover .dropdown-menu__comment {
-  display: flex;
+  display: block;
   opacity: 1;
   visibility: visible;
 }
