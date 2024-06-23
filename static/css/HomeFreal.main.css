@@ -909,11 +909,30 @@ textarea {
   font-size: 12px;
   color: var(--grey-color-font);
 }
+.post-item {
+  position: relative;
+  display: flex; /* Hiển thị các phần tử con theo chiều ngang */
+  align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+}
 
-.post-item ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.post-item i {
+  color: var(--grey-color-font);
+  font-size: 16px;
+}
+
+.save-item,
+.post-heading__more {
+  display: flex; /* Hiển thị các phần tử con theo chiều ngang */
+  align-items: center; /* Căn chỉnh các phần tử con theo chiều dọc */
+  padding: 0px 10px 0px 7px;
+  margin: 5px; /* Khoảng cách giữa các phần tử con */
+}
+
+.post-item ul,
+.post-more__dropdown {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .post-item ul li a {
@@ -924,6 +943,48 @@ textarea {
   color: var(--white-color-font);
 }
 
+.post-heading__more {
+  position: relative; /* Đảm bảo dropdown nằm trong khoảng không gian của post-item */
+}
+
+.post-heading__more .fa-solid.fa-ellipsis-vertical {
+  cursor: pointer; /* Biểu tượng '...vertical' có thể được nhấp chuột */
+}
+
+.post-heading__more .post-more__dropdown {
+  display: none; /* Ẩn dropdown ban đầu */
+  position: absolute;
+  top: calc(100% + 5px); /* Đặt dropdown bên dưới '...vertical' */
+  right: 0;
+  border-radius: 5px;
+  background-color: var(--bg-input-color-line);
+  z-index: 1000; /* Đảm bảo dropdown hiển thị trên các phần tử khác */
+  min-width: 200px; /* Độ rộng tối thiểu của dropdown */
+}
+
+.post-heading__more:hover .post-more__dropdown {
+  display: block;
+  /* Hiện dropdown khi hover vào '...vertical' */
+}
+
+.post-more__dropdown li {
+  padding: 8px 10px;
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+}
+
+.post-more__dropdown li:hover {
+  background-color: var(--bg-color-hover); /* Màu nền khi hover */
+}
+
+.post-more__dropdown a {
+  text-decoration: none;
+  color: var(--grey-color-font);
+  display: block; /* Chuyển đổi thành phần block để điều chỉnh padding */
+}
+
+.post-more__dropdown a:hover {
+  text-decoration: underline;
+}
 .post-content p {
   margin: 10px 0;
   font-size: 14px;
@@ -1005,12 +1066,12 @@ textarea {
 
 .content-think__comment textarea[type="text"] {
   flex: 1;
-  padding: 15px 0px 0px 15px;
+  padding: 15px 180px 0px 15px;
   border: none;
   border-radius: 44px;
   color: var(--white-color-font);
   background-color: var(--bg-input-color-line);
-  font-size: 16px;
+  font-size: 14px;
   outline: none;
   margin-right: -48px;
   min-height: 50px;
@@ -1048,6 +1109,7 @@ textarea {
 .reply-comment {
   display: flex;
   align-items: center;
+  margin-left: 30px;
   margin-bottom: 10px;
 }
 
@@ -1060,15 +1122,14 @@ textarea {
 
 .reply-comment textarea[type="text"] {
   flex: 1;
-  padding: 15px 0px 0px 15px;
+  padding: 15px 180px 0px 15px;
   border: none;
   border-radius: 44px;
   color: var(--white-color-font);
   background-color: var(--bg-input-color-line);
-  font-size: 16px;
+  font-size: 13px;
   outline: none;
   margin-right: -48px;
-  min-height: 50px;
 }
 
 .reply-comment ul {
@@ -1155,7 +1216,7 @@ textarea {
 /* Show dropdown on hover
 /*----------------------------------------*/
 .dropdown-comment:hover .dropdown-menu__comment {
-  display: block;
+  display: flex;
   opacity: 1;
   visibility: visible;
 }
@@ -1168,7 +1229,6 @@ textarea {
 
 .comment {
   display: flex;
-  align-items: flex-start;
   margin-top: 15px;
   margin-bottom: 10px;
 }

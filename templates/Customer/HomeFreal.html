@@ -228,23 +228,18 @@
                 <span>12 minutes ago on <strong>3D Stock Contributor</strong></span>
               </div>
               <div class="post-item">
-                <ul>
-                  <li>
-                    <a href="#"><i class="fa-regular fa-bookmark"></i></a>
-                  </li>
-                  <!-- <li>
-                    <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                  </li> -->
-                  <div class="post-heading__more">
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                    <ul class="post-more__dropdown">
-                      <li><a href="#">Edit post</a></li>
-                      <li><a href="#">Delete post</a></li>
-                      <li><a href="#">Save post</a></li>
-                      <li><a href="#">Turn off notifications for this post</a></li>
-                    </ul>
-                  </div>
-                </ul>
+                <div class="save-item">
+                  <a href="#"><i class="fa-regular fa-bookmark"></i></a>
+                </div>
+                <div class="post-heading__more">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                  <ul class="post-more__dropdown">
+                    <li><a href="#">Edit post</a></li>
+                    <li><a href="#">Delete post</a></li>
+                    <li><a href="#">Save post</a></li>
+                    <li><a href="#">Turn off notifications for this post</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
             <!-- Post section begin -->
@@ -626,24 +621,23 @@
           alert("Post shared successfully!");
         });
       });
-      // comment
       $(document).ready(function () {
         function addComment(text, isReply = false, parentElement = null) {
           const commentHtml = `
-                <div class="comment">
-                  <img src="../../static/images/avata/avata1.jpg" alt="comment-profile" />
-                  <div class="comment-content">
-                    <span>AndyVu Coder</span>
-                    <p>${text}</p>
-                    <ul>
-                      <li>
-                        <a href="#"class="reply-btn"><i class="fa-solid fa-arrows-turn-right"></i>Reply comment </a>
-                      </li>
-                    </ul>
-                    <div class="replies"></div>
-                  </div>
-                </div>
-            `;
+      <div class="comment">
+        <img src="../../static/images/avata/avata1.jpg" alt="comment-profile" />
+        <div class="comment-content">
+          <span>AndyVu Coder</span>
+          <p>${text}</p>
+          <ul>
+            <li>
+              <a href="#" class="reply-btn"><i class="fa-solid fa-arrows-turn-right"></i>Reply comment </a>
+            </li>
+          </ul>
+          <div class="replies"></div>
+        </div>
+      </div>
+    `;
 
           if (isReply) {
             $(parentElement).find(".replies").first().append(commentHtml);
@@ -669,34 +663,25 @@
           const parentComment = $(this).closest(".comment");
           if (!parentComment.find(".reply-comment").length) {
             const replyInputHtml = `
-                <div class=" reply-comment">
-                  <img src="../../static/images/avata/avata1.jpg" alt="profile" />
-                  <textarea type="text" id="commentInput"class="reply-text" placeholder="Trả lời..."> </textarea>
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fa-solid fa-paper-plane send-reply" id="sendComment"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa-solid fa-camera"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa-regular fa-image"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa-solid fa-paperclip"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-                    </li>
-                  </ul>
-              </div>
-                `;
+        <div class="reply-comment">
+          <img src="../../static/images/avata/avata1.jpg" alt="profile" />
+          <textarea type="text" class="reply-text" placeholder="Trả lời..."></textarea>
+          <ul>
+            <li><a href="#" class="send-reply"><i class="fa-solid fa-paper-plane"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-camera"></i></a></li>
+            <li><a href="#"><i class="fa-regular fa-image"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-paperclip"></i></a></li>
+            <li><a href="#"><i class="fa-regular fa-face-smile"></i></a></li>
+          </ul>
+        </div>
+      `;
             parentComment.append(replyInputHtml);
+            parentComment.find(".reply-text").focus(); // Focus on reply textarea
           }
         });
 
         $(document).on("click", ".send-reply", function () {
-          const replyText = $(this).siblings(".reply-text").val();
+          const replyText = $(this).closest(".reply-comment").find(".reply-text").val().trim();
           if (replyText) {
             addComment(replyText, true, $(this).closest(".comment"));
             $(this).closest(".reply-comment").remove();
@@ -705,8 +690,18 @@
 
         $(document).on("keypress", ".reply-text", function (event) {
           if (event.which === 13) {
-            $(this).siblings(".send-reply").click();
+            event.preventDefault();
+            $(this).closest(".reply-comment").find(".send-reply").click();
           }
+        });
+      });
+      $(document).ready(function () {
+        $(".post-heading__more").mouseenter(function () {
+          $(this).addClass("show-dropdown");
+        });
+
+        $(".post-heading__more").mouseleave(function () {
+          $(this).removeClass("show-dropdown");
         });
       });
     </script>
