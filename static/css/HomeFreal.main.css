@@ -1666,7 +1666,23 @@ textarea {
   padding: 10px 15px;
   margin-bottom: 5px;
 }
-
+.best-resorts .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.list-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+}
 .resort-details {
   display: flex;
   flex-direction: column;
