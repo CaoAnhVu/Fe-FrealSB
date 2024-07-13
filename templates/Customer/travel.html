@@ -15,10 +15,7 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../static/vendor/font-awesome/mdi/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="../../static/vendor/font-awesome/css/vendor.bundle.base.css" />
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
+
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../static/js/jquery.dataTables.min.js" />
@@ -273,11 +270,18 @@
               <div class="col-md-6">
                 <h3 class="section-title">Available Dates</h3>
                 <div class="calendar">
-                  <div class="month-selector">
+                  <!-- <div class="month-selector">
                     <select class="custom-select" id="month-year">
                       <option selected>January 2021</option>
-                      <!-- Other months -->
+                      <option selected>January 2022</option>
+                      <option selected>January 2023</option>
+                      <option selected>January 2024</option>
+                      <option selected>January 2025</option>
+                      
                     </select>
+                  </div> -->
+                  <div class="month-selector">
+                    <select class="custom-select" id="month-year"></select>
                   </div>
                   <table class="table table-bordered">
                     <thead>
@@ -363,7 +367,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
                       <div class="resort-details">
                         <span class="resort-name">Greenview Resort</span>
-                        <span class="resort-location">India</span>
+                        <span class="resort-location">Viet Nam</span>
                       </div>
                       <span class="badge badge-primary badge-pill">$187/day</span>
                     </li>
@@ -391,6 +395,67 @@
           $(".table td").removeClass("selected");
           $(this).addClass("selected");
         });
+      });
+
+      //Calender//
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const monthYearSelect = document.getElementById("month-year");
+        const calendarBody = document.getElementById("calendar-body");
+        const today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+
+        function generateCalendar(month, year) {
+          const firstDay = new Date(year, month).getDay();
+          const daysInMonth = new Date(year, month + 1, 0).getDate();
+          calendarBody.innerHTML = "";
+
+          let date = 1;
+          for (let i = 0; i < 6; i++) {
+            let row = document.createElement("tr");
+            for (let j = 0; j < 7; j++) {
+              let cell = document.createElement("td");
+              if (i === 0 && j < (firstDay === 0 ? 6 : firstDay - 1)) {
+                cell.appendChild(document.createTextNode(""));
+              } else if (date > daysInMonth) {
+                break;
+              } else {
+                cell.appendChild(document.createTextNode(date));
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                  cell.classList.add("selected");
+                }
+                date++;
+              }
+              row.appendChild(cell);
+            }
+            calendarBody.appendChild(row);
+            if (date > daysInMonth) break;
+          }
+        }
+
+        function populateMonthYearSelect() {
+          monthYearSelect.innerHTML = "";
+          for (let i = 2020; i <= 2023; i++) {
+            for (let j = 0; j < 12; j++) {
+              let option = document.createElement("option");
+              option.value = `${j}-${i}`;
+              option.text = new Date(i, j).toLocaleString("en-US", { month: "long", year: "numeric" });
+              if (i === currentYear && j === currentMonth) {
+                option.selected = true;
+              }
+              monthYearSelect.appendChild(option);
+            }
+          }
+        }
+
+        monthYearSelect.addEventListener("change", function () {
+          const [selectedMonth, selectedYear] = this.value.split("-");
+          generateCalendar(parseInt(selectedMonth), parseInt(selectedYear));
+        });
+
+        populateMonthYearSelect();
+        generateCalendar(currentMonth, currentYear);
       });
     </script>
     <!-- Bootstrap JS -->

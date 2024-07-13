@@ -1652,6 +1652,11 @@ textarea {
   background-color: #d1e7dd;
   color: #000;
 }
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--white-color-font);
+}
 
 .best-resorts .list-group-item {
   display: flex;
