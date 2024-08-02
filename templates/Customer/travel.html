@@ -268,19 +268,9 @@
             </div>
             <div class="row mt-5">
               <div class="col-md-6">
-                <h3 class="section-title">Available Dates</h3>
                 <div class="calendar">
-                  <!-- <div class="month-selector">
-                    <select class="custom-select" id="month-year">
-                      <option selected>January 2021</option>
-                      <option selected>January 2022</option>
-                      <option selected>January 2023</option>
-                      <option selected>January 2024</option>
-                      <option selected>January 2025</option>
-                      
-                    </select>
-                  </div> -->
                   <div class="month-selector">
+                    <h3 class="section-title">Available Dates</h3>
                     <select class="custom-select" id="month-year"></select>
                   </div>
                   <table class="table table-bordered">
@@ -310,22 +300,22 @@
                         <td>4</td>
                         <td>5</td>
                         <td class="selected">6</td>
-                        <td class="selected">7</td>
-                        <td class="selected">8</td>
-                        <td class="selected">9</td>
-                        <td class="selected">10</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
                       </tr>
                       <tr>
-                        <td class="selected">11</td>
-                        <td class="selected">12</td>
-                        <td class="selected">13</td>
-                        <td class="selected">14</td>
-                        <td class="selected">15</td>
-                        <td class="selected">16</td>
-                        <td class="selected">17</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
                       </tr>
                       <tr>
-                        <td class="selected">18</td>
+                        <td>18</td>
                         <td class="selected">19</td>
                         <td>20</td>
                         <td>21</td>
@@ -347,122 +337,134 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <h3 class="section-title">Best Resorts</h3>
                 <div class="best-resorts">
+                  <h3 class="section-title">Best Resorts</h3>
                   <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
                       <div class="resort-details">
-                        <span class="resort-name">Heritage Resort</span>
-                        <span class="resort-location">Singapore</span>
+                        <div class="resort-details__image">
+                          <img src="../../static/images/travel/travel9.avif" alt="Resort image" />
+                        </div>
+                        <div class="resort-info">
+                          <span class="resort-name">Heritage Resort</span>
+                          <span class="resort-location">Singapore</span>
+                        </div>
                       </div>
                       <span class="badge badge-primary badge-pill">$120/day</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
                       <div class="resort-details">
-                        <span class="resort-name">Royel Hills Resort</span>
-                        <span class="resort-location">Thailand</span>
+                        <div class="resort-details__image">
+                          <img src="../../static/images/travel/travel2.avif" alt="Resort image" />
+                        </div>
+                        <div class="resort-info">
+                          <span class="resort-name">Royel Hills Resort</span>
+                          <span class="resort-location">Thailand</span>
+                        </div>
                       </div>
                       <span class="badge badge-primary badge-pill">$115/day</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
                       <div class="resort-details">
-                        <span class="resort-name">Greenview Resort</span>
-                        <span class="resort-location">Viet Nam</span>
+                        <div class="resort-details__image">
+                          <img src="../../static/images/travel/travel7.avif" alt="Resort image" />
+                        </div>
+                        <div class="resort-info">
+                          <span class="resort-name">Greenview Resort</span>
+                          <span class="resort-location">Viet Nam</span>
+                        </div>
                       </div>
                       <span class="badge badge-primary badge-pill">$187/day</span>
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <script>
       $(document).ready(function () {
-        // Handle month navigation (if necessary)
-        $("#prev-month").on("click", function () {
-          // Logic to go to the previous month
-        });
+  // Handle month navigation (if necessary)
+  $("#prev-month").on("click", function () {
+    // Logic to go to the previous month
+  });
 
-        $("#next-month").on("click", function () {
-          // Logic to go to the next month
-        });
+  $("#next-month").on("click", function () {
+    // Logic to go to the next month
+  });
 
-        // Handle date selection
-        $(".table td").on("click", function () {
-          $(".table td").removeClass("selected");
-          $(this).addClass("selected");
-        });
-      });
+  // Handle date selection
+  $(".table td").on("click", function () {
+    $(".table td").removeClass("selected");
+    $(this).addClass("selected");
+  });
+});
+//Calender//
 
-      //Calender//
+document.addEventListener("DOMContentLoaded", function () {
+  const monthYearSelect = document.getElementById("month-year");
+  const calendarBody = document.getElementById("calendar-body");
+  const today = new Date();
+  let currentMonth = today.getMonth();
+  let currentYear = today.getFullYear();
 
-      document.addEventListener("DOMContentLoaded", function () {
-        const monthYearSelect = document.getElementById("month-year");
-        const calendarBody = document.getElementById("calendar-body");
-        const today = new Date();
-        let currentMonth = today.getMonth();
-        let currentYear = today.getFullYear();
+  function generateCalendar(month, year) {
+    const firstDay = new Date(year, month).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    calendarBody.innerHTML = "";
 
-        function generateCalendar(month, year) {
-          const firstDay = new Date(year, month).getDay();
-          const daysInMonth = new Date(year, month + 1, 0).getDate();
-          calendarBody.innerHTML = "";
-
-          let date = 1;
-          for (let i = 0; i < 6; i++) {
-            let row = document.createElement("tr");
-            for (let j = 0; j < 7; j++) {
-              let cell = document.createElement("td");
-              if (i === 0 && j < (firstDay === 0 ? 6 : firstDay - 1)) {
-                cell.appendChild(document.createTextNode(""));
-              } else if (date > daysInMonth) {
-                break;
-              } else {
-                cell.appendChild(document.createTextNode(date));
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                  cell.classList.add("selected");
-                }
-                date++;
-              }
-              row.appendChild(cell);
-            }
-            calendarBody.appendChild(row);
-            if (date > daysInMonth) break;
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+      let row = document.createElement("tr");
+      for (let j = 0; j < 7; j++) {
+        let cell = document.createElement("td");
+        if (i === 0 && j < (firstDay === 0 ? 6 : firstDay - 1)) {
+          cell.appendChild(document.createTextNode(""));
+        } else if (date > daysInMonth) {
+          break;
+        } else {
+          cell.appendChild(document.createTextNode(date));
+          if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+            cell.classList.add("selected");
           }
+          date++;
         }
+        row.appendChild(cell);
+      }
+      calendarBody.appendChild(row);
+      if (date > daysInMonth) break;
+    }
+  }
 
-        function populateMonthYearSelect() {
-          monthYearSelect.innerHTML = "";
-          for (let i = 2022; i <= 2024; i++) {
-            for (let j = 0; j < 12; j++) {
-              let option = document.createElement("option");
-              option.value = `${j}-${i}`;
-              option.text = new Date(i, j).toLocaleString("en-US", { month: "long", year: "numeric" });
-              if (i === currentYear && j === currentMonth) {
-                option.selected = true;
-              }
-              monthYearSelect.appendChild(option);
-            }
-          }
+  function populateMonthYearSelect() {
+    monthYearSelect.innerHTML = "";
+    for (let i = 2022; i <= 2024; i++) {
+      for (let j = 0; j < 12; j++) {
+        let option = document.createElement("option");
+        option.value = `${j}-${i}`;
+        option.text = new Date(i, j).toLocaleString("en-US", { month: "long", year: "numeric" });
+        if (i === currentYear && j === currentMonth) {
+          option.selected = true;
         }
+        monthYearSelect.appendChild(option);
+      }
+    }
+  }
 
-        monthYearSelect.addEventListener("change", function () {
-          const [selectedMonth, selectedYear] = this.value.split("-");
-          generateCalendar(parseInt(selectedMonth), parseInt(selectedYear));
-        });
+  monthYearSelect.addEventListener("change", function () {
+    const [selectedMonth, selectedYear] = this.value.split("-");
+    generateCalendar(parseInt(selectedMonth), parseInt(selectedYear));
+  });
 
-        populateMonthYearSelect();
-        generateCalendar(currentMonth, currentYear);
-      });
+  populateMonthYearSelect();
+  generateCalendar(currentMonth, currentYear);
+});
     </script>
+    <script src="../../static/js/script.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/99cbdec5b3.js" crossorigin="anonymous"></script>
-    <script src="../../static/js/script.js"></script>
   </body>
 </html>

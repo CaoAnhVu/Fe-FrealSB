@@ -245,6 +245,86 @@ body {
 /* End of styles
 /*----------------------------------------*/
 /*----------------------------------------*/
+/* Responsive sidebar
+/*----------------------------------------*/
+@media screen and (max-width: 1024px) {
+  .sidebar {
+    width: 220px; /* Giảm độ rộng khi màn hình nhỏ hơn 1024px */
+  }
+
+  .sidebar .logo img {
+    width: 50px; /* Điều chỉnh kích thước logo */
+    height: 40px;
+  }
+
+  .sidebar .logo span {
+    font-size: 24px; /* Điều chỉnh kích thước chữ logo */
+  }
+
+  .sidebar .search-bar input {
+    font-size: 12px; /* Điều chỉnh kích thước chữ trong ô tìm kiếm */
+  }
+
+  .sidebar .navigation ul li a {
+    font-size: 14px; /* Điều chỉnh kích thước chữ trong các mục điều hướng */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 180px; /* Giảm độ rộng khi màn hình nhỏ hơn 768px */
+  }
+
+  .sidebar.collapsed {
+    width: 60px; /* Độ rộng của sidebar khi bị thu nhỏ */
+  }
+
+  .sidebar .logo img {
+    width: 40px; /* Điều chỉnh kích thước logo */
+    height: 30px;
+  }
+
+  .sidebar .logo span {
+    font-size: 20px; /* Điều chỉnh kích thước chữ logo */
+  }
+
+  .sidebar .search-bar {
+    display: none; /* Ẩn thanh tìm kiếm trên màn hình nhỏ */
+  }
+
+  .sidebar .navigation ul li a {
+    font-size: 12px; /* Điều chỉnh kích thước chữ trong các mục điều hướng */
+  }
+
+  .sidebar .new-listing,
+  .sidebar .new-event {
+    display: none; /* Ẩn nhãn "New" trên màn hình nhỏ */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100px; /* Giảm độ rộng khi màn hình nhỏ hơn 480px */
+  }
+
+  .sidebar.collapsed {
+    width: 50px; /* Độ rộng của sidebar khi bị thu nhỏ */
+  }
+
+  .sidebar .logo img {
+    width: 30px; /* Điều chỉnh kích thước logo */
+    height: 25px;
+  }
+
+  .sidebar .logo span {
+    font-size: 16px; /* Điều chỉnh kích thước chữ logo */
+  }
+
+  .sidebar .navigation ul li a {
+    font-size: 10px; /* Điều chỉnh kích thước chữ trong các mục điều hướng */
+  }
+}
+/*----------------------------------------*/
 /* Sidebar end
 /*----------------------------------------*/
 
@@ -470,6 +550,93 @@ body {
   opacity: 1;
   visibility: visible;
 }
+/*----------------------------------------*/
+/* Responsive navbar
+/*----------------------------------------*/
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 10px; /* Giảm padding cho màn hình nhỏ hơn 1024px */
+  }
+
+  .navbar-left ul li a,
+  .navbar-center ul li a,
+  .navbar-right ul li a {
+    font-size: 18px; /* Điều chỉnh kích thước chữ */
+  }
+
+  .navbar-center ul li a {
+    padding: 8px 16px; /* Giảm padding cho các mục trong navbar center */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Đặt các mục navbar theo cột */
+    align-items: flex-start;
+  }
+
+  .navbar-left,
+  .navbar-center,
+  .navbar-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Thêm khoảng cách giữa các phần */
+  }
+
+  .navbar-left ul,
+  .navbar-center ul,
+  .navbar-right ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-left ul li,
+  .navbar-center ul li,
+  .navbar-right ul li {
+    margin: 10px 0; /* Thêm khoảng cách giữa các mục */
+  }
+
+  .navbar-left ul li a,
+  .navbar-center ul li a,
+  .navbar-right ul li a {
+    font-size: 16px; /* Điều chỉnh kích thước chữ */
+    padding: 10px; /* Điều chỉnh padding */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 5px; /* Giảm padding cho màn hình nhỏ hơn 480px */
+  }
+
+  .navbar-left ul li a,
+  .navbar-center ul li a,
+  .navbar-right ul li a {
+    font-size: 14px; /* Điều chỉnh kích thước chữ */
+    padding: 8px; /* Điều chỉnh padding */
+  }
+
+  .navbar-center {
+    display: none; /* Ẩn phần navbar center trên màn hình nhỏ */
+  }
+
+  .navbar-right .profile-link span {
+    display: none; /* Ẩn tên người dùng trên màn hình nhỏ */
+  }
+
+  .navbar-right .profile-link img {
+    width: 30px; /* Điều chỉnh kích thước ảnh profile */
+    height: 30px;
+  }
+
+  .navbar-right .profile-link i.fa-circle-chevron-down {
+    font-size: 16px; /* Điều chỉnh kích thước icon */
+    margin: 0; /* Điều chỉnh vị trí icon */
+  }
+}
+
 /*----------------------------------------*/
 /* Navbar end
 /*----------------------------------------*/
@@ -860,6 +1027,102 @@ textarea {
 .btn-upload:hover {
   color: var(--white-color-font);
   background-color: var(--bg-color-hover);
+}
+/*----------------------------------------*/
+/* Responsive container-body
+/*----------------------------------------*/
+
+@media screen and (max-width: 1024px) {
+  .container-body {
+    flex-direction: column;
+    padding: 15px; /* Giảm padding cho màn hình nhỏ hơn 1024px */
+  }
+
+  .content {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-think {
+    padding: 10px; /* Điều chỉnh padding cho màn hình nhỏ hơn 768px */
+  }
+
+  .content-think__post img {
+    width: 30px; /* Điều chỉnh kích thước ảnh */
+    height: 30px;
+    margin-right: 5px;
+  }
+
+  .content-think__post input[type="text"] {
+    padding: 10px; /* Giảm padding cho input text */
+    font-size: 14px; /* Giảm kích thước chữ cho input text */
+  }
+
+  .think-item__left__post {
+    padding: 5px 20px; /* Giảm padding cho các nút */
+    font-size: 12px; /* Giảm kích thước chữ cho các nút */
+  }
+
+  .modal-dialog {
+    max-width: 100%; /* Điều chỉnh độ rộng tối đa của modal */
+    padding: 10px; /* Thêm padding để tránh tràn viền */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-think {
+    padding: 5px; /* Giảm padding cho màn hình nhỏ hơn 480px */
+  }
+
+  .content-think__post img {
+    width: 25px; /* Điều chỉnh kích thước ảnh */
+    height: 25px;
+  }
+
+  .content-think__post input[type="text"] {
+    padding: 8px; /* Giảm padding cho input text */
+    font-size: 12px; /* Giảm kích thước chữ cho input text */
+  }
+
+  .think-item__left__post {
+    padding: 5px 15px; /* Giảm padding cho các nút */
+    font-size: 10px; /* Giảm kích thước chữ cho các nút */
+  }
+
+  .modal-body .header-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-body .info-picture {
+    width: 30px; /* Điều chỉnh kích thước ảnh */
+    height: 30px;
+  }
+
+  .modal-body .modal-info h3 {
+    font-size: 14px; /* Giảm kích thước chữ cho modal title */
+  }
+
+  .modal-body .modal-info span {
+    font-size: 10px; /* Giảm kích thước chữ cho thông tin phụ */
+  }
+
+  .image-preview {
+    min-width: 100%; /* Điều chỉnh độ rộng của ảnh preview */
+    min-height: 150px; /* Điều chỉnh độ cao của ảnh preview */
+  }
+
+  .close-image {
+    width: 30px; /* Điều chỉnh kích thước nút close */
+    height: 30px;
+    font-size: 1rem; /* Điều chỉnh kích thước chữ cho nút close */
+  }
+
+  .btn-upload {
+    padding: 0.25rem 0.5rem; /* Giảm padding cho nút upload */
+    font-size: 14px; /* Giảm kích thước chữ cho nút upload */
+  }
 }
 /*----------------------------------------*/
 /* Modal-content-think end 
@@ -1297,6 +1560,529 @@ textarea {
 .view-all-comment a:hover {
   color: var(--white-color-font);
 }
+/*----------------------------------------*/
+/* Post Section */
+/*----------------------------------------*/
+.post {
+  background-color: var(--bg-color-nav-sider);
+  padding: 20px;
+  border: 1px solid var(--bg-input-color-line);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: var(--white-color-font);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.post-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Post info container */
+.post-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: auto;
+}
+.post-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--white-color-font);
+}
+
+.post-info span {
+  font-size: 12px;
+  color: var(--grey-color-font);
+}
+
+.post-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.post-item i {
+  color: var(--grey-color-font);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.post-item i:hover {
+  color: var(--white-color-font);
+}
+
+.save-item,
+.post-heading__more {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 7px;
+  margin: 5px;
+}
+
+.post-heading__more {
+  position: relative;
+  display: inline-block;
+}
+
+.post-heading__more .fa-solid.fa-ellipsis-vertical {
+  cursor: pointer;
+}
+
+.post-more__dropdown {
+  display: block;
+  position: absolute;
+  list-style: none;
+  top: calc(100% + 5px);
+  right: 0;
+  min-width: 300px;
+  padding: 10px;
+  background-color: var(--bg-input-color-line);
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease, all 0.3s ease;
+}
+
+.post-heading__more:hover .post-more__dropdown {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.post-more__dropdown li {
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.post-more__dropdown li:hover {
+  background-color: var(--bg-color-hover);
+}
+
+.post-more__dropdown a {
+  text-decoration: none;
+  color: var(--white-color-font);
+  display: block;
+  font-size: 14px;
+}
+
+.post-more__dropdown a:hover {
+  background-color: var(--bg-color-hover);
+}
+
+.post-content p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.post-content img {
+  width: 100%;
+  border-radius: 10px;
+}
+.post-actions {
+  margin-bottom: 20px;
+}
+.post-actions ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  margin: 15px 40px 0 40px;
+}
+
+.post-actions ul li a {
+  color: var(--grey-color-font);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Định dạng cho nút like */
+.hover-action {
+  text-decoration: none;
+  color: var(--grey-color-font);
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.hover-action.active {
+  color: #00aaff;
+  border-color: #00aaff;
+}
+
+.hover-action:hover {
+  color: #00aaff;
+  background-color: var(--bg-color-hover);
+}
+.count-number {
+  padding: 10px;
+}
+.post-actions ul li a i {
+  margin-right: 5px;
+}
+
+.post-actions ul li a:hover {
+  color: #00aaff;
+}
+.post-actions__line {
+  border: 1px solid var(--bg-input-color-line);
+}
+
+.post-comment {
+  margin-top: 20px;
+}
+
+.content-think__comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.content-think__comment img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.content-think__comment textarea[type="text"] {
+  flex: 1;
+  padding: 15px 180px 0px 15px;
+  border: none;
+  border-radius: 44px;
+  color: var(--white-color-font);
+  background-color: var(--bg-input-color-line);
+  font-size: 14px;
+  outline: none;
+  margin-right: -48px;
+  min-height: 50px;
+}
+
+.content-think__comment ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: -140px;
+  margin-bottom: 0;
+}
+
+.content-think__comment ul li {
+  margin: 0 10px;
+}
+
+.content-think__comment ul li a {
+  color: var(--grey-color-font);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.content-think__comment ul li a:hover {
+  color: var(--white-color-font);
+}
+
+.comment-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  color: var(--grey-color-font);
+}
+
+/* Reply Comment */
+.reply-comment {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+.reply-comment img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.reply-comment textarea[type="text"] {
+  flex: 1;
+  padding: 15px 180px 0px 15px;
+  border: none;
+  border-radius: 44px;
+  color: var(--white-color-font);
+  background-color: var(--bg-input-color-line);
+  font-size: 13px;
+  outline: none;
+  margin-right: -48px;
+}
+
+.reply-comment ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: -140px;
+  margin-bottom: 0;
+}
+
+.reply-comment ul li {
+  margin: 0 10px;
+}
+
+.reply-comment ul li a {
+  color: var(--grey-color-font);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.reply-comment ul li a:hover {
+  color: var(--white-color-font);
+}
+
+/* Thêm CSS cho icon */
+.comment-options .dropdown-comment i.fa-circle-chevron-down {
+  color: var(--white-color-font);
+  font-size: 16px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dropdown-comment {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-comment .select-item {
+  display: flex;
+  align-items: center;
+  color: var(--white-color-font);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dropdown-comment .select-item span {
+  margin-right: 5px;
+}
+
+.dropdown-comment .dropdown-menu__comment {
+  background: var(--bg-input-color-line);
+  width: 170px;
+  text-align: left;
+  padding: 5px 10px;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+.dropdown-comment .dropdown-menu__comment li {
+  list-style: none;
+}
+
+.dropdown-comment .dropdown-menu__comment li a {
+  font-size: 14px;
+  color: var(--white-color-font);
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+
+.dropdown-comment .dropdown-menu__comment li a:hover {
+  background-color: var(--bg-color-hover);
+}
+
+/* Show dropdown on hover */
+.dropdown-comment:hover .dropdown-menu__comment {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.comment-list {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--bg-color-nav-sider);
+  border-radius: 10px;
+}
+
+.comment {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.comment img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-content span {
+  font-weight: bold;
+  color: var(--white-color-font);
+}
+
+.comment-content p {
+  margin: 5px 0;
+  color: var(--grey-color-font);
+}
+
+.comment-content ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 5px 0 0;
+  gap: 10px;
+}
+
+.comment-content ul li a {
+  color: var(--white-color-font);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.comment-content ul li a:hover {
+  color: var(--white-color-font);
+}
+.comment-list .comment-content i.fa-arrows-turn-right {
+  color: var(--white-color-font);
+  font-size: 16px;
+  margin: 0px 10px 0 0px;
+  cursor: pointer;
+}
+
+.view-all-comment {
+  text-align: center;
+  margin-top: 20px;
+}
+.post-comment__line {
+  margin-top: 20px;
+  border: 1px solid var(--bg-input-color-line);
+  margin-bottom: 20px;
+}
+.view-all-comment a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.view-all-comment a:hover {
+  color: var(--white-color-font);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .post-info {
+    margin-right: 0;
+    align-items: flex-start;
+  }
+
+  .post-actions ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .post-actions ul li {
+    margin-bottom: 10px;
+  }
+
+  .content-think__comment textarea[type="text"],
+  .reply-comment textarea[type="text"] {
+    padding: 10px;
+    margin-right: 0;
+  }
+
+  .content-think__comment ul,
+  .reply-comment ul {
+    margin-left: 0;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-think__comment ul li,
+  .reply-comment ul li {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post {
+    padding: 10px;
+  }
+
+  .post-header img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .post-info h3 {
+    font-size: 14px;
+  }
+
+  .post-info span {
+    font-size: 10px;
+  }
+
+  .post-content p {
+    font-size: 12px;
+  }
+
+  .post-content img {
+    border-radius: 5px;
+  }
+
+  .post-actions ul li a {
+    font-size: 14px;
+  }
+
+  .comment img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .comment-content span {
+    font-size: 14px;
+  }
+
+  .comment-content p {
+    font-size: 12px;
+  }
+
+  .comment-content ul li a {
+    font-size: 10px;
+  }
+
+  .dropdown-comment .dropdown-menu__comment {
+    width: 140px;
+  }
+}
 
 /*----------------------------------------*/
 /* Post section end
@@ -1561,7 +2347,12 @@ textarea {
   color: var(--grey-color-font);
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: 75px;
+}
+.custom-select {
+  display: flex;
+  justify-content: space-between;
+  margin: 70px -334px 0px 0px;
 }
 .nav-tabs {
   border: none;
@@ -1674,28 +2465,35 @@ textarea {
   align-items: center;
   border: none;
   padding: 10px 15px;
+  margin-left: 0;
   margin-bottom: 5px;
-}
-.best-resorts .list-group-item {
   border-radius: 10px;
 }
 .list-group {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
   flex-direction: column;
   padding-left: 0;
-  margin-bottom: 0;
+  margin-top: 17px;
 }
 .resort-details {
   display: flex;
+  align-items: center;
+  color: black;
+}
+.resort-details__image img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 10px;
+
+  margin-right: 10px;
+}
+.resort-info {
+  display: flex;
   flex-direction: column;
 }
-
 .resort-name {
   font-weight: bold;
 }
-
 .resort-location {
   color: gray;
   font-size: 14px;
@@ -1714,3 +2512,341 @@ textarea {
 /*----------------------------------------*/
 /* Travel section end */
 /*----------------------------------------*/
+/*----------------------------------------*/
+/* Aside container 
+/*----------------------------------------*/
+.asider {
+  padding: 10px;
+  overflow-y: auto;
+  width: 380px; /* Set the width of the asider */
+}
+
+/* Responsive adjustments for .asider */
+@media (max-width: 768px) {
+  .asider {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/*----------------------------------------*/
+/* List styles */
+/*----------------------------------------*/
+.asider ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*----------------------------------------*/
+/* Section headers */
+/*----------------------------------------*/
+.asider h2 {
+  display: flex;
+  justify-content: space-around;
+  color: var(--white-color-font);
+  margin-bottom: 10px;
+  padding: 15px 0px;
+  font-size: 16px;
+}
+
+.asider ul li {
+  color: var(--grey-color-font);
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.asider ul li:hover {
+  background-color: var(--bg-color-hover);
+  color: var(--white-color-font);
+}
+
+/*----------------------------------------*/
+/* Notification section */
+/*----------------------------------------*/
+.asider-notification {
+  background-color: var(--bg-color-nav-sider);
+  border: 1px solid var(--bg-input-color-line);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow-y: hidden; /* Initially hide the scrollbar */
+  position: relative;
+  transition: max-height 0.5s ease;
+  max-width: 400px;
+}
+
+.asider-notification.expanded {
+  max-height: 900px; /* Remove the height limit when expanded */
+  overflow-y: auto;
+}
+
+.asider-notification a i {
+  margin-left: 10px;
+  color: var(--white-color-font);
+  font-size: 20px;
+}
+
+/*----------------------------------------*/
+/* Notification details */
+/*----------------------------------------*/
+.notificate-details {
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-input-color-line);
+  transition: background-color 0.3s;
+}
+
+.notificate-details:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.notificate-details:hover {
+  background-color: var(--bg-color-hover);
+}
+
+/*----------------------------------------*/
+/* Aligning notificate-name and new-notificate */
+/*----------------------------------------*/
+.notificate-name {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--white-color-font);
+}
+
+.new-notificate {
+  background-color: var(--bg-input-color-line);
+  color: var(--grey-color-font);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.new-detail {
+  display: block;
+  color: var(--grey-color-font);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/*----------------------------------------*/
+/* See all link */
+/*----------------------------------------*/
+.asider-notification .see {
+  display: block;
+  margin-top: 20px;
+  color: #00aaff;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.asider-notification .see:hover {
+  color: var(--white-color-font);
+}
+
+/*----------------------------------------*/
+/* Friend  */
+/*----------------------------------------*/
+.asider-friends {
+  background-color: var(--bg-color-nav-sider);
+  border: 1px solid var(--bg-input-color-line);
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow-y: hidden; /* Initially hide the scrollbar */
+  position: relative;
+  transition: max-height 0.5s ease;
+  max-width: 400px;
+}
+
+.asider-friends.expanded {
+  max-height: 900px; /* Remove the height limit when expanded */
+  overflow-y: auto;
+}
+
+.asider-friends a i {
+  margin-left: 10px;
+  color: var(--white-color-font);
+  font-size: 20px;
+}
+
+/*----------------------------------------*/
+/* Friend details */
+/*----------------------------------------*/
+.friend-details {
+  padding: 10px;
+  border-bottom: 1px solid var(--bg-input-color-line);
+  transition: background-color 0.3s;
+}
+
+.friend-details:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.friend-details:hover {
+  background-color: var(--bg-color-hover);
+}
+
+/*----------------------------------------*/
+/* Aligning friend-name and new-notificate__friend */
+/*----------------------------------------*/
+.friend-name {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--white-color-font);
+}
+
+.new-notificate__friend {
+  background-color: var(--bg-input-color-line);
+  color: var(--grey-color-font);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  flex-direction: column;
+  align-items: flex-end; /* Align items to the start (left) */
+  margin-left: auto; /* Adjust margin as needed */
+}
+
+.new-detail__friend {
+  display: block;
+  color: var(--grey-color-font);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/*----------------------------------------*/
+/* See all link */
+/*----------------------------------------*/
+.asider-friends .view {
+  display: block;
+  margin-top: 20px;
+  color: #00aaff;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.asider-friends .view:hover {
+  color: var(--white-color-font);
+}
+
+/*----------------------------------------*/
+/* Custom scrollbar styles */
+/*----------------------------------------*/
+
+.asider-notification ul,
+.asider-friends ul {
+  max-height: 550px; /* Adjust this height as needed */
+  overflow-y: auto;
+  padding-right: 10px; /* Add padding to avoid scrollbar overlap */
+}
+
+.asider-notification ul::-webkit-scrollbar,
+.asider-friends ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.asider-notification ul::-webkit-scrollbar-thumb,
+.asider-friends ul::-webkit-scrollbar-thumb {
+  background-color: var(--bg-input-color-line);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.asider-notification ul::-webkit-scrollbar-thumb:hover,
+.asider-friends ul::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bg-color-hover);
+}
+
+.asider-notification ul::-webkit-scrollbar-track,
+.asider-friends ul::-webkit-scrollbar-track {
+  background-color: var(--bg-color-nav-sider);
+}
+
+/*----------------------------------------*/
+/* Custom scrollbar styles end */
+/*----------------------------------------*/
+
+/*----------------------------------------*/
+/* Travel section begin */
+/*----------------------------------------*/
+.container {
+  padding: 20px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  color: var(--grey-color-font);
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 75px;
+}
+
+.custom-select {
+  display: flex;
+  justify-content: space-between;
+  margin: 70px -334px 0px 0px;
+}
+
+.nav-tabs {
+  border: none;
+  margin-bottom: 30px;
+}
+
+.nav-tabs .nav-link {
+  font-weight: bold;
+  color: var(--grey-color-font);
+  margin: 5px;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--bg-color-nav-sider);
+  font-weight: bold;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background-color: var(--bg-color-hover);
+  color: var(--white-color-font);
+  border-radius: 5px;
+}
+
+.nav-tabs .see-all {
+  font-weight: normal;
+  color: #007bff;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--bg-input-color-line);
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-deck .card {
+  min-width: 200px;
+  border-radius: 20px;
+  border: none;
+}
+
+.card-img-top {
+  height: 300px;
+}
