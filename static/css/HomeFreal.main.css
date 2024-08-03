@@ -2464,10 +2464,10 @@ textarea {
   justify-content: space-between;
   align-items: center;
   border: none;
-  padding: 10px 15px;
+  padding: 0;
+  padding-right: 25px;
   margin-left: 0;
-  margin-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 .list-group {
   display: flex;
